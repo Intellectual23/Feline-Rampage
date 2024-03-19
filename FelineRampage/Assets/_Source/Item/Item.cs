@@ -31,6 +31,13 @@ namespace Item
           Game.Instance.Settings.Luck += _itemAsset.BuffValue;
           break;
       }
+      Debug.Log("ITEM IS COLLECTED");
+    }
+
+    public ItemAsset ItemAsset
+    {
+      get => _itemAsset;
+      set => _itemAsset = value;
     }
   }
 }
