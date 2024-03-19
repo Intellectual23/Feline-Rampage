@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class UnitView : MonoBehaviour
+namespace Unit
+{
+  public class UnitView : MonoBehaviour
   {
     private Unit _unit;
 
@@ -10,3 +12,4 @@ public class UnitView : MonoBehaviour
       _unit = unit;
     }
   }
+}
