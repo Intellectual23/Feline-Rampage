@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 70343c3c85f5dac4fbd8bfad274f757e
+guid: 352cf9de266f8c34390fec4c687e330f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7795288705938499624
-    second: catCane_0
+      213: 3058490366511055864
+    second: rat(1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catCane_0
+      name: rat(1)_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 9
-        width: 373
-        height: 529
+        x: 70
+        y: 15
+        width: 217
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 828241fd6cd6e2c60800000000000000
-      internalID: 7795288705938499624
+      spriteID: 8f388d4a8c0f17a20800000000000000
+      internalID: 3058490366511055864
       vertices: []
       indices: 
       edges: []
@@ -157,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      catCane_0: 7795288705938499624
+      rat(1)_0: 3058490366511055864
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

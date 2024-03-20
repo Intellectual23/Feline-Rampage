@@ -258,8 +258,11 @@ MonoBehaviour:
   Settings: {fileID: 11400000, guid: 4f2a40bbbb9fabc4da9de99d96c268f6, type: 2}
   _items:
   - {fileID: 11400000, guid: 7cdce9871de2ee94b9ac7ab9da7f0895, type: 2}
-  _units: []
+  _units:
+  - {fileID: 11400000, guid: 863861bbe4687994b85134b77d4f7ba4, type: 2}
+  _coinBalance: 0
   _itemPrefab: {fileID: 2060181695811835059, guid: 182e6e8c117a6aa4e933fe2c56c10008, type: 3}
+  _unitPrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
