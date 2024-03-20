@@ -21,7 +21,7 @@ namespace Item
     private void OnMouseDown()
     {
       _item.Collect();
-      Game.Instance.Inventory.Add(this);
+      Inventory.Instance.Items.Add(this);
       Destroy(gameObject);
     }
   }
