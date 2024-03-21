@@ -1,16 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Item;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Generator : MonoBehaviour
 {
   [SerializeField] private GameObject _itemPrefab;
   public List<ItemAsset> _items = new();
 
+  private void Start()
+  {
+    GenerateEnemyDrop();
+  }
+
   public void GenerateItems()
   {
     int setType = UnityEngine.Random.Range(1, 3);
+    Debug.Log(setType);
     switch (setType)
     {
       case 1:
@@ -27,10 +35,11 @@ public class Generator : MonoBehaviour
 
   public void GenerateEnemyDrop()
   {
-    int q = UnityEngine.Random.Range(0, 3);
+    int q = UnityEngine.Random.Range(1, 3);
+    var consumableAssets = GetConsumableAssets();
     for (int i = 0; i < q; ++i)
     {
-      SpawnConsumable(_items[UnityEngine.Random.Range(0, _items.Count - 1)]);
+      SpawnConsumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count - 1)]);
     }
   }
 
@@ -73,13 +82,13 @@ public class Generator : MonoBehaviour
     }
   }
 
-  private void GenerateEpicSet()
+  private void GenerateEpicSet()// Can be simplier!
   {
     var epicAssets = GetEpicAssets();
     var rareAssets = GetRareAssets();
     var commonAssets = GetCommonAssets();
     var consumableAssets = GetConsumableAssets();
-    int setVar = UnityEngine.Random.Range(1, 3);
+    int setVar = UnityEngine.Random.Range(1, 4);
     switch (setVar)
     {
       case 1:
