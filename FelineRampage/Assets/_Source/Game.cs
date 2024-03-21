@@ -10,11 +10,8 @@ public class Game : MonoBehaviour
 {
   public static Game Instance;
   public UnitSettings Settings;
-  public List<ItemAsset> _items = new();
   public List<UnitSettings> _units = new();
-  public int _coinBalance = 0;
-  [NonSerialized] public List<ItemView> Inventory = new();
-  [SerializeField] private GameObject _itemPrefab;
+  public int CoinBalance = 0;
   [SerializeField] private GameObject _unitPrefab;
 
   private void Awake()
@@ -40,10 +37,7 @@ public class Game : MonoBehaviour
 
   void SpawnItem(int index)
   {
-    var item = new Item.Item(_items[index]);
-    GameObject itemObject = Instantiate(_itemPrefab, transform.position, Quaternion.identity);
-    ItemView itemView = itemObject.GetComponent<ItemView>();
-    itemView.Init(item);
+    
   }
 
   void SpawnUnit(int index)
