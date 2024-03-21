@@ -8,11 +8,6 @@ namespace Item
   public abstract class Item
   {
     protected ItemAsset _itemAsset;
-
-    public Item()
-    {
-      
-    }
     public Item(ItemAsset itemAsset)
     {
       _itemAsset = itemAsset;

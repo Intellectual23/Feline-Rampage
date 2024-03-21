@@ -5,19 +5,35 @@ using Item;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Generator : MonoBehaviour
+public class ItemGenerator : MonoBehaviour
 {
+  public static ItemGenerator Instance;
   [SerializeField] private GameObject _itemPrefab;
   public List<ItemAsset> _items = new();
 
+  private void Awake()
+  {
+    if (Instance == null)
+    {
+      Instance = this;
+    }
+    else
+    {
+      Destroy(gameObject);
+    }
+
+    DontDestroyOnLoad(this);
+  }
+
   private void Start()
   {
-    GenerateEnemyDrop();
+    //GenerateEnemyDrop();
+    GenerateItems();
   }
 
   public void GenerateItems()
   {
-    int setType = UnityEngine.Random.Range(1, 3);
+    int setType = UnityEngine.Random.Range(1, 4);
     Debug.Log(setType);
     switch (setType)
     {
@@ -35,7 +51,7 @@ public class Generator : MonoBehaviour
 
   public void GenerateEnemyDrop()
   {
-    int q = UnityEngine.Random.Range(1, 3);
+    int q = UnityEngine.Random.Range(0, 4);
     var consumableAssets = GetConsumableAssets();
     for (int i = 0; i < q; ++i)
     {
@@ -47,7 +63,7 @@ public class Generator : MonoBehaviour
   {
     var commonAssets = GetCommonAssets();
     var consumableAssets = GetConsumableAssets();
-    int setVar = UnityEngine.Random.Range(1, 2);
+    int setVar = UnityEngine.Random.Range(1, 3);
     switch (setVar)
     {
       case 1:
@@ -65,7 +81,7 @@ public class Generator : MonoBehaviour
     var rareAssets = GetRareAssets();
     var commonAssets = GetCommonAssets();
     var consumableAssets = GetConsumableAssets();
-    int setVar = UnityEngine.Random.Range(1, 3);
+    int setVar = UnityEngine.Random.Range(1, 4);
     switch (setVar)
     {
       case 1:
@@ -82,13 +98,13 @@ public class Generator : MonoBehaviour
     }
   }
 
-  private void GenerateEpicSet()// Can be simplier!
+  private void GenerateEpicSet() // Can be simplier!
   {
     var epicAssets = GetEpicAssets();
     var rareAssets = GetRareAssets();
     var commonAssets = GetCommonAssets();
     var consumableAssets = GetConsumableAssets();
-    int setVar = UnityEngine.Random.Range(1, 4);
+    int setVar = UnityEngine.Random.Range(1, 5);
     switch (setVar)
     {
       case 1:

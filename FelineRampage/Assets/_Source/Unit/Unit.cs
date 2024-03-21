@@ -97,7 +97,6 @@ namespace Unit
       {
         return defaultDamage;
       }
-
       return 2 * defaultDamage;
     }
   }

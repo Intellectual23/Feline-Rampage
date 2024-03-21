@@ -11,7 +11,7 @@ public class Game : MonoBehaviour
   public static Game Instance;
   public UnitSettings Settings;
   public List<UnitSettings> _units = new();
-  public int _coinBalance = 0;
+  public int CoinBalance = 0;
   [SerializeField] private GameObject _unitPrefab;
 
   private void Awake()
