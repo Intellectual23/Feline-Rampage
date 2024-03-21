@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FishSkeleton_0: -3451124636366365329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
