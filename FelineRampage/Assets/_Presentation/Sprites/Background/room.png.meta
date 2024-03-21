@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec585f8faee6ed34f9e635e57b942200
+guid: 912a9789e1368d7489de87ac79adc328
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3665199128612735302
-    second: CatMint_0
+      213: 8223760342256937110
+    second: room_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CatMint_0
+      name: room_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
-        height: 382
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 649880c30376dd230800000000000000
-      internalID: 3665199128612735302
+      spriteID: 6986b2eb57aa02270800000000000000
+      internalID: 8223760342256937110
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      CatMint_0: 3665199128612735302
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

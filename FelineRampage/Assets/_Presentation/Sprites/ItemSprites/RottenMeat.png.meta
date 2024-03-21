@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RottenMeat_0: -1452496512913441272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

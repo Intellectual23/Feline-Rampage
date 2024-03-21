@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GoldenPaw_0: 3486261982737189892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

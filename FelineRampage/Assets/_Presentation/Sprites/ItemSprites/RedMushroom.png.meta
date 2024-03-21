@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RedMushroom_0: -463000226993001135
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

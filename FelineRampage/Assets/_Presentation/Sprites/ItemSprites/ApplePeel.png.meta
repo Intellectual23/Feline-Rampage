@@ -252,7 +252,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ApplePeel_0: 814740214178846911
+      ApplePeel_1: 1997037757145839926
+      ApplePeel_2: 3112725348437818733
+      ApplePeel_3: 209184766231267023
+      ApplePeel_4: -2769847400205247578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
