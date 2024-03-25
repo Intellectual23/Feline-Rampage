@@ -6,6 +6,7 @@ namespace Unit
   public class Unit
   {
     private UnitSettings _unitSettings;
+    public bool IsFighting { get; set; }
 
     public Unit(UnitSettings unitSettings)
     {

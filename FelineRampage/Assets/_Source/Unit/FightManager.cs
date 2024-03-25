@@ -38,7 +38,7 @@ namespace Unit
       {
         playerTurn = false;
       }
-      while (Game.Instance.Settings.Hp > 0 || Enemy.UnitSettings.Hp > 0)
+      while (Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
       {
         if (playerTurn)
         {
@@ -50,6 +50,11 @@ namespace Unit
         }
 
         playerTurn = !playerTurn;
+      }
+
+      if (Enemy.UnitSettings.Hp <= 0)
+      {
+        Enemy.IsFighting = false;
       }
       Debug.Log("Battle ended.");
     }
@@ -186,7 +191,7 @@ namespace Unit
 
     private static bool ReceiveDamage(int agilityToUse, UnitSettings unit, Random rnd, int damage, bool toLegs)
     {
-      int dodgeProbability = (agilityToUse / 12) * 100;
+      int dodgeProbability = (agilityToUse * 100) / 12;
       int cubeParameter = rnd.Next(1, 101);
       
       // successfully dodged

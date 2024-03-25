@@ -11,7 +11,6 @@ namespace Unit
   {
     private Unit _unit;
     private int _startHealth;
-    private bool _isFighting = false;
 
     public void Init(Unit unit)
     {
@@ -38,6 +37,11 @@ namespace Unit
         Destroy(gameObject);
         ResetHealth();
       }
+
+      if (!_unit.IsFighting)
+      {
+        DisableColliders();
+      }
     }
 
     private void OnMouseDown()
@@ -48,6 +52,7 @@ namespace Unit
       Debug.Log(collider.enabled);
         FightManager.Enemy = _unit;
         EnableColliders();
+        _unit.IsFighting = true;
         StartCoroutine(FightManager.Instance.FightMode());
     }
 
