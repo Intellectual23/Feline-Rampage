@@ -534,6 +534,7 @@ MonoBehaviour:
   _units:
   - {fileID: 11400000, guid: 863861bbe4687994b85134b77d4f7ba4, type: 2}
   CoinBalance: 0
+  CurrentRoom: {fileID: 1620278709}
   _unitPrefab: {fileID: 8992470087622475096, guid: fcaa06bdf190a3b4e9339ccafb2bb449, type: 3}
 --- !u!1 &1620278703 stripped
 GameObject:

@@ -16,7 +16,7 @@ namespace Room
       RectTransform roomRectTransform = GetComponent<RectTransform>();
       foreach (Transform childTransform in transform) {
         RectTransform childRectTransform = childTransform.GetComponent<RectTransform>();
-        Vector2 positionRelativeToParent = childRectTransform.anchoredPosition;
+        Vector3 positionRelativeToParent = childRectTransform.anchoredPosition;
         Debug.Log("Child position relative to parent: " + positionRelativeToParent);
       }
       

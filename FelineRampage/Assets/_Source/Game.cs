@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Item;
+using Room;
 using Unit;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Game : MonoBehaviour
   public UnitSettings Settings;
   public List<UnitSettings> _units = new();
   public int CoinBalance = 0;
+  public RoomView CurrentRoom;
   [SerializeField] private GameObject _unitPrefab;
 
   private void Awake()
@@ -30,16 +32,11 @@ public class Game : MonoBehaviour
 
   // Start is called before the first frame update
   void Start()
-  { 
-    //SpawnItem(0);
-    SpawnUnit(0);
-  }
-
-  void SpawnItem(int index)
   {
     
+    //SpawnItem(0);
+    //SpawnUnit(0);
   }
-
   void SpawnUnit(int index)
   {
     var unit = new Unit.Unit(_units[index]);

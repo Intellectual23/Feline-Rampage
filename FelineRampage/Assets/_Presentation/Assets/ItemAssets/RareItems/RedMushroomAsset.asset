@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f75817407489341a74d31947316b64, type: 3}
   m_Name: RedMushroomAsset
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 0
-  <Name>k__BackingField: 
+  <Id>k__BackingField: 2
+  <Name>k__BackingField: RedMushroom
   <Description>k__BackingField: 
   <Rarity>k__BackingField: 2
   <Icon>k__BackingField: {fileID: -463000226993001135, guid: 2dde5a03f08be5c44a1fb7351730eb3c, type: 3}
