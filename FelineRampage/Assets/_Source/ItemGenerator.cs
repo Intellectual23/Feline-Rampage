@@ -33,6 +33,7 @@ public class ItemGenerator : MonoBehaviour
       Vector3 positionRelativeToParent = childTransform.localPosition;
       _spawnPositions.Add(positionRelativeToParent);
     }
+
     //GenerateEnemyDrop();
     GenerateItems();
   }
@@ -134,16 +135,16 @@ public class ItemGenerator : MonoBehaviour
   }
 
   private List<ItemAsset> GetConsumableAssets() =>
-    _items.Where(asset => asset.Rarity == 0).Select(thisItem => thisItem).ToList();
+    _items.Where(asset => asset.Rarity == 0).Select(thisItem => thisItem).OrderBy(item => item.Id).ToList();
 
   private List<ItemAsset> GetCommonAssets() =>
-    _items.Where(asset => asset.Rarity == 1).Select(thisItem => thisItem).ToList();
+    _items.Where(asset => asset.Rarity == 1).Select(thisItem => thisItem).OrderBy(item => item.Id).ToList();
 
   private List<ItemAsset> GetRareAssets() =>
-    _items.Where(asset => asset.Rarity == 2).Select(thisItem => thisItem).ToList();
+    _items.Where(asset => asset.Rarity == 2).Select(thisItem => thisItem).OrderBy(item => item.Id).ToList();
 
   private List<ItemAsset> GetEpicAssets() =>
-    _items.Where(asset => asset.Rarity == 3).Select(thisItem => thisItem).ToList();
+    _items.Where(asset => asset.Rarity == 3).Select(thisItem => thisItem).OrderBy(item => item.Id).ToList();
 
   private void SpawnArtifact(ItemAsset itemAsset, Vector3 position) // add position or layout 
   {
