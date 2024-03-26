@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
     
     //SpawnItem(0);
     //SpawnUnit(0);
-  }
+  } 
   void SpawnUnit(int index)
   {
     var unit = new Unit.Unit(_units[index]);
