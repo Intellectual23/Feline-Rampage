@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae23604add7cf3c4292c53ff01c5bd42, type: 3}
-  m_Name: MainCharacter
+  m_Name: EmptyAsset
   m_EditorClassIdentifier: 
-  <Hp>k__BackingField: 100
-  <Strength>k__BackingField: 3
-  <Agility>k__BackingField: 3
-  <Luck>k__BackingField: 2
-  <Icon>k__BackingField: {fileID: -7232521027535748977, guid: 933cc4128b1c56d47b2ea0d2ef0ab0e3, type: 3}
+  <Hp>k__BackingField: 0
+  <Strength>k__BackingField: 0
+  <Agility>k__BackingField: 0
+  <Luck>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 0}

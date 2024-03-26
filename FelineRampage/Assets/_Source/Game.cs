@@ -10,12 +10,11 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
   public static Game Instance;
-  public int _startHealth = 100;
-  public UnitSettings Settings;
-  public List<UnitSettings> _units = new();
+  public int CurrentHealth { get; set; }
+  [SerializeField] private UnitSettings StartSettings;
+  [SerializeField] public UnitSettings Settings;
   public int CoinBalance = 0;
   public RoomView CurrentRoom;
-  [SerializeField] private GameObject _unitPrefab;
 
   private void Awake()
   {
@@ -30,26 +29,26 @@ public class Game : MonoBehaviour
 
     DontDestroyOnLoad(this);
   }
-  
+
 
   // Start is called before the first frame update
   void Start()
   {
-    
-    //SpawnItem(0);
-    //SpawnUnit(0);
-  } 
-  void SpawnUnit(int index)
-  {
-    var unit = new Unit.Unit(_units[index]);
-    GameObject unitObject = Instantiate(_unitPrefab, transform.position, Quaternion.identity);
-    UnitView unitView = unitObject.GetComponent<UnitView>();
-    unitView.Init(unit);
+    LoadStats();
   }
 
   // Update is called once per frame
   void Update()
   {
-    Settings.Hp = _startHealth;
+  }
+
+  private void LoadStats()
+  {
+    Settings.Hp = StartSettings.Hp;
+    CurrentHealth = Settings.Hp;
+    Settings.Strength = StartSettings.Strength;
+    Settings.Agility = StartSettings.Agility;
+    Settings.Luck = StartSettings.Luck;
+    Settings.Icon = StartSettings.Icon;
   }
 }
