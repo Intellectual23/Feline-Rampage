@@ -22,21 +22,12 @@ namespace Room
       }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
       if (other.CompareTag("MainCamera"))
       {
-        Debug.Log("Main camera entered the room");
-        // Добавьте здесь логику реакции на вход камеры в комнату
-      }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-      if (other.CompareTag("MainCamera"))
-      {
-        Debug.Log("Main camera exited the room");
-        // Добавьте здесь логику реакции на выход камеры из комнаты
+        Game.Instance.CurrentRoom = this;
+        Debug.Log(other.name);
       }
     }
   }
