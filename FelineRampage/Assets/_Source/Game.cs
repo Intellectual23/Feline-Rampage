@@ -10,7 +10,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
   public static Game Instance;
-  public int _startHealth = 100;
+  public int CurrentHealth { get; set; }
   [SerializeField] private UnitSettings StartSettings;
   [SerializeField] public UnitSettings Settings;
   public int CoinBalance = 0;
@@ -45,6 +45,7 @@ public class Game : MonoBehaviour
   private void LoadStats()
   {
     Settings.Hp = StartSettings.Hp;
+    CurrentHealth = Settings.Hp;
     Settings.Strength = StartSettings.Strength;
     Settings.Agility = StartSettings.Agility;
     Settings.Luck = StartSettings.Luck;

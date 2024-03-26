@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameInteface : MonoBehaviour
 {
   public TextMeshProUGUI _coinBalanceText;
+
+  public TextMeshProUGUI _strengthText;
+  public TextMeshProUGUI _agilityText;
+  public TextMeshProUGUI _luckText;
+  //public Sprite _characterIcon;
   public static GameInteface Instance;
 
   private void Awake()
@@ -20,8 +26,17 @@ public class GameInteface : MonoBehaviour
     DontDestroyOnLoad(this);
   }
 
+  public void Start()
+  {
+    Transform characterIcon = transform.GetChild(0).GetChild(0);
+    characterIcon.GetComponent<SpriteRenderer>().sprite = Game.Instance.Settings.Icon;
+  }
   public void Update()
   {
-    _coinBalanceText.text = $"{Game.Instance.CoinBalance + 5}";
+    _coinBalanceText.text = $"{Game.Instance.CoinBalance + 6}";
+    _strengthText.text = $"STR: {Game.Instance.Settings.Strength}";
+    _agilityText.text = $"AGL: {Game.Instance.Settings.Agility}";
+    _luckText.text = $"LUCK: {Game.Instance.Settings.Luck}";
+
   }
 }
