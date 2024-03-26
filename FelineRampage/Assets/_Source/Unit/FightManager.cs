@@ -55,6 +55,7 @@ namespace Unit
       if (Enemy.UnitSettings.Hp <= 0)
       {
         Enemy.IsFighting = false;
+        ItemGenerator.Instance.GenerateEnemyDrop();
       }
       Debug.Log("Battle ended.");
     }
@@ -191,7 +192,7 @@ namespace Unit
 
     private static bool ReceiveDamage(int agilityToUse, UnitSettings unit, Random rnd, int damage, bool toLegs)
     {
-      int dodgeProbability = (agilityToUse * 100) / 12;
+      int dodgeProbability = (agilityToUse * 3);
       int cubeParameter = rnd.Next(1, 101);
       
       // successfully dodged
