@@ -31,7 +31,24 @@ public class Game : MonoBehaviour
     DontDestroyOnLoad(this);
   }
   
-  public void Start()
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    
+    //SpawnItem(0);
+    //SpawnUnit(0);
+  } 
+  void SpawnUnit(int index)
+  {
+    var unit = new Unit.Unit(_units[index]);
+    GameObject unitObject = Instantiate(_unitPrefab, transform.position, Quaternion.identity);
+    UnitView unitView = unitObject.GetComponent<UnitView>();
+    unitView.Init(unit);
+  }
+
+  // Update is called once per frame
+  void Update()
   {
     Settings.Hp = _startHealth;
   }
