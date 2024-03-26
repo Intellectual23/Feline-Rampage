@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace Unit
 {
@@ -11,16 +15,16 @@ namespace Unit
     public void Init(Unit unit)
     {
       _unit = unit;
-      Transform image = transform.GetChild(0);
+      Transform image = transform.GetChild(3);
       if (image == null) return;
       image.GetComponent<SpriteRenderer>().sprite = unit.UnitSettings.Icon;
     }
 
-    private void OnMouseDown()
+    public Unit Unit()
     {
-      _unit.FightMode();
-    }
+      return _unit;
 
+    }
     public void Start()
     {
       _startHealth = _unit.UnitSettings.Hp;
@@ -33,8 +37,40 @@ namespace Unit
         Destroy(gameObject);
         ResetHealth();
       }
+
+      if (!_unit.IsFighting)
+      {
+        DisableColliders();
+      }
     }
 
+    private void OnMouseDown()
+    {
+      Debug.Log("on mouse down");
+      Collider collider = transform.GetComponent<Collider>();
+      collider.enabled = false;
+      Debug.Log(collider.enabled);
+        FightManager.Enemy = _unit;
+        EnableColliders();
+        _unit.IsFighting = true;
+        StartCoroutine(FightManager.Instance.FightMode());
+    }
+
+    private void EnableColliders()
+    {
+      for (int i = 0; i < 3; ++i)
+      {
+        transform.GetChild(i).transform.GetComponent<Collider>().enabled = true;
+      }
+    }
+    
+    private void DisableColliders()
+    {
+      for (int i = 0; i < 3; ++i)
+      {
+        transform.GetChild(i).transform.GetComponent<Collider>().enabled = false;
+      }
+    }
     private void ResetHealth()
     {
       _unit.UnitSettings.Hp = _startHealth;
