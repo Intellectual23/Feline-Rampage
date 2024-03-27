@@ -11,6 +11,7 @@ using UnityEngine;
       if (IsFilled)
       {
         Item.SetActive(Inventory.Instance.IsActive);
+        Item.transform.position = transform.position;
       }
     }
   }

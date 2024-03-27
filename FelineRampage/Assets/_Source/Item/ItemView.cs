@@ -23,12 +23,7 @@ namespace Item
     {
       if (_item._isInInventory)
       {
-        Debug.Log("popa");
         gameObject.SetActive(Inventory.Instance.IsActive);
-      }
-      else
-      {
-        Debug.Log("pipa");
       }
     }
     private void OnMouseDown()
