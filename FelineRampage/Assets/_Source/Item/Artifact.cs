@@ -4,7 +4,7 @@ namespace Item
 {
   public class Artifact: Item
   {
-    public Artifact(ItemAsset asset): base(asset) { }
+    public Artifact(ItemAsset asset, bool isInInventory): base(asset, isInInventory) { }
     public override void Collect()
     {
       switch (_itemAsset.StatToBuff)
