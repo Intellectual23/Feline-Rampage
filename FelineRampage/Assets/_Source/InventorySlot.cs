@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using Item;
+using Unity.VisualScripting;
 using UnityEngine;
 
   public class InventorySlot : MonoBehaviour
@@ -8,7 +9,7 @@ using UnityEngine;
 
     private void Update()
     {
-      if (IsFilled)
+      if (IsFilled) 
       {
         Item.SetActive(Inventory.Instance.IsActive);
         Item.transform.position = transform.position;

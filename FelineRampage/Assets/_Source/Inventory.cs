@@ -49,6 +49,13 @@ public class Inventory : MonoBehaviour
     slot.IsFilled = true;
   }
 
+  public void DeleteFromSlot(int index)
+  {
+    var slot = transform.GetChild(index).GetComponent<InventorySlot>();
+    slot.Item = null;
+    slot.IsFilled = false;
+  } 
+
   public void ClickManager()
   {
     if (IsActive)
