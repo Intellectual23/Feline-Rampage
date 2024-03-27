@@ -129,13 +129,13 @@ TextureImporter:
       name: GoldenPaw_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 50
         y: 0
         width: 277
         height: 382
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 41, z: 0, w: 24}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 414a4566b7add7547bb99e28d6e9173e
     internalID: 0
     vertices: []
     indices: 

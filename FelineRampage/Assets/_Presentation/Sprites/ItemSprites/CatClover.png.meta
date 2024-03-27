@@ -129,12 +129,12 @@ TextureImporter:
       name: CatClover_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
+        x: 39
+        y: 3
         width: 305
         height: 381
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ada2974e1e34fa46b27840847b8e76e
     internalID: 0
     vertices: []
     indices: 
