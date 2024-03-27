@@ -66,6 +66,13 @@ public class ItemGenerator : MonoBehaviour
     }
   }
 
+  public void SpawnToInventory(Item.Item item, Vector3 position)
+  {
+    GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
+    ItemView itemView = itemObject.GetComponent<ItemView>();
+    itemView.Init(item);
+    Inventory.Instance.AddToSlot(Inventory.Instance.Count, itemObject);
+  }
   private void GenerateCommonSet()
   {
     var commonAssets = GetCommonAssets();
@@ -148,7 +155,7 @@ public class ItemGenerator : MonoBehaviour
 
   private void SpawnArtifact(ItemAsset itemAsset, Vector3 position) // add position or layout 
   {
-    var item = new Artifact(itemAsset);
+    var item = new Artifact(itemAsset, false);
     GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
@@ -157,7 +164,7 @@ public class ItemGenerator : MonoBehaviour
 
   private void SpawnConsumable(ItemAsset itemAsset, Vector3 position) // add position or layout
   {
-    var item = new Consumable(itemAsset);
+    var item = new Consumable(itemAsset,false);
     GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
