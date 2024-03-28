@@ -213,6 +213,7 @@ MonoBehaviour:
   _hasRightPath: 0
   _hasFrontPath: 1
   _hasBackPath: 0
+  _roomType: 3
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0

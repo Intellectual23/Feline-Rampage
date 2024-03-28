@@ -51,17 +51,13 @@ namespace Unit
         }
         else
         {
-          break;
+          Enemy.IsFighting = false;
+          ItemGenerator.Instance.GenerateEnemyDrop();
+          Debug.Log("Battle ended.");
+          yield break;
         }
         playerTurn = !playerTurn;
       }
-
-      if (Enemy.UnitSettings.Hp <= 0)
-      {
-        Enemy.IsFighting = false;
-        ItemGenerator.Instance.GenerateEnemyDrop();
-      }
-      Debug.Log("Battle ended.");
     }
 
     private IEnumerator PlayerTurn()
@@ -73,7 +69,7 @@ namespace Unit
       while (!isRightClickReceived)
       {
         // Ждем клика по юниту
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(1));
       
         // Наносим урон юниту
         switch (Part)
@@ -101,14 +97,13 @@ namespace Unit
 
     private IEnumerator EnemyTurn()
     {
+      yield return new WaitForSeconds(10);
       if (Enemy.UnitSettings.Hp > 0)
       {
         Debug.Log("Enemy's turn. Attacking player.");
         // Юнит наносит урон игроку
         MobTurn(rnd);
       }
-
-      yield return new WaitForSeconds(60);
     }
     
     private void MainCharAttackToBody(UnitSettings unit, Random rnd)

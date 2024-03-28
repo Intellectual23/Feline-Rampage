@@ -10,6 +10,8 @@ namespace Room
     public bool _hasRightPath;
     public bool _hasFrontPath;
     public bool _hasBackPath;
+    public RoomType _roomType;
+    
 
     private void Start()
     {
@@ -28,6 +30,31 @@ namespace Room
       {
         Game.Instance.CurrentRoom = this;
         Debug.Log(other.name);
+      }
+    }
+
+    private void RoomActivity()
+    {
+      switch (_roomType)
+      {
+        case RoomType.Shop:
+          //ItemGenerator.Instance.GenerateShopItems();
+          break;
+        case RoomType.BasicRoom:
+          // some methods
+          break;
+        case RoomType.Treasures:
+          // ItemGenerator.Instance.GenerateTreasureItems();
+          break;
+        case RoomType.Boss:
+          // UnitGenerator.Instance.SpawnBoobs()
+          break;
+        case RoomType.StartRoom:
+          // show the rules of the game
+          break;
+        default:
+          Debug.Log("switch in roomview cannot assess the type of the room");
+          break;
       }
     }
   }

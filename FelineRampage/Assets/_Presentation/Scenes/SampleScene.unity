@@ -1112,6 +1112,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2469547091602338876, guid: 09d53779d42ed594ba40ef8cf2d73944, type: 3}
+      propertyPath: _roomType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2680127656927041836, guid: 09d53779d42ed594ba40ef8cf2d73944, type: 3}
       propertyPath: m_Name
       value: FrontRight
@@ -1234,6 +1238,10 @@ PrefabInstance:
     - target: {fileID: 2231545474929555972, guid: 62f714b3ab79b9c4592a019a78d9f66d, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469547091602338876, guid: 62f714b3ab79b9c4592a019a78d9f66d, type: 3}
+      propertyPath: _roomType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2469547091602338876, guid: 62f714b3ab79b9c4592a019a78d9f66d, type: 3}
       propertyPath: _hasBackPath
@@ -1451,6 +1459,10 @@ PrefabInstance:
     - target: {fileID: 1952546641065930268, guid: e0aa1ee4113302a44a8cecbe219064a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469547091602338876, guid: e0aa1ee4113302a44a8cecbe219064a8, type: 3}
+      propertyPath: _roomType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2469547091602338876, guid: e0aa1ee4113302a44a8cecbe219064a8, type: 3}
       propertyPath: _hasBackPath
