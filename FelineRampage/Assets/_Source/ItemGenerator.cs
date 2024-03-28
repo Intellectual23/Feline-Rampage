@@ -72,7 +72,10 @@ public class ItemGenerator : MonoBehaviour
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
     Inventory.Instance.AddToSlot(Inventory.Instance.Count, itemObject);
+    itemView._slotId = Inventory.Instance.Count;
+    Inventory.Instance.Count++;
   }
+
   private void GenerateCommonSet()
   {
     var commonAssets = GetCommonAssets();
@@ -164,7 +167,7 @@ public class ItemGenerator : MonoBehaviour
 
   private void SpawnConsumable(ItemAsset itemAsset, Vector3 position) // add position or layout
   {
-    var item = new Consumable(itemAsset,false);
+    var item = new Consumable(itemAsset, false);
     GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);

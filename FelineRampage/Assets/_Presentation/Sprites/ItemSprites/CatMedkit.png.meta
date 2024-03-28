@@ -3,8 +3,80 @@ guid: 018a17d3dbfa007448f9b2bd96f78e38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9126097122877174288
-    second: CatMedkit_0
+      213: 8229990744697035800
+    second: Catmedkit_0
+  - first:
+      213: 3518710823688639086
+    second: Catmedkit_1
+  - first:
+      213: -2234990296758352216
+    second: Catmedkit_2
+  - first:
+      213: 7369381779983581871
+    second: Catmedkit_3
+  - first:
+      213: 1063790102097577305
+    second: Catmedkit_4
+  - first:
+      213: -8985326429091584158
+    second: Catmedkit_5
+  - first:
+      213: 8581401782232194972
+    second: Catmedkit_6
+  - first:
+      213: -8475016402338273211
+    second: Catmedkit_7
+  - first:
+      213: -953027357064926513
+    second: Catmedkit_8
+  - first:
+      213: 3382207251819562680
+    second: Catmedkit_9
+  - first:
+      213: 5982895499887565654
+    second: Catmedkit_10
+  - first:
+      213: 1556523147493231480
+    second: Catmedkit_11
+  - first:
+      213: 5685662735865851636
+    second: Catmedkit_12
+  - first:
+      213: -4613898116473431927
+    second: Catmedkit_13
+  - first:
+      213: -3563045917301867250
+    second: Catmedkit_14
+  - first:
+      213: 7163482767779254859
+    second: Catmedkit_15
+  - first:
+      213: 5572643782268659349
+    second: Catmedkit_16
+  - first:
+      213: -8061964029557861407
+    second: Catmedkit_17
+  - first:
+      213: 7777964852837016125
+    second: Catmedkit_18
+  - first:
+      213: -2328977270885050906
+    second: Catmedkit_19
+  - first:
+      213: 7085694588348186457
+    second: Catmedkit_20
+  - first:
+      213: 1909863541967067869
+    second: Catmedkit_21
+  - first:
+      213: 8757113032139358024
+    second: Catmedkit_22
+  - first:
+      213: 7320655535527469866
+    second: Catmedkit_23
+  - first:
+      213: -1584227363117697518
+    second: Catmedkit_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,22 +198,526 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CatMedkit_0
+      name: Catmedkit_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 624
-        height: 423
+        x: 9
+        y: 65
+        width: 375
+        height: 215
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fd0135d407995180800000000000000
-      internalID: -9126097122877174288
+      spriteID: 81c5b6a5afcc63270800000000000000
+      internalID: 8229990744697035800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 7
+        width: 309
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 37, y: 59, z: 37, w: 20}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e629849e9d8f4d030800000000000000
+      internalID: 3518710823688639086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 310
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a60645aa28bbf0e0800000000000000
+      internalID: -2234990296758352216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_3
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 312
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2482a2fad454660800000000000000
+      internalID: 7369381779983581871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 341
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9554a1f267753ce00800000000000000
+      internalID: 1063790102097577305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 324
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26721131835bd4380800000000000000
+      internalID: -8985326429091584158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_6
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 112
+        width: 74
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f9ad86473471770800000000000000
+      internalID: 8581401782232194972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_7
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 279
+        width: 6
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548a4011c71b26a80800000000000000
+      internalID: -8475016402338273211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 27
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca6ae80baa26c2f0800000000000000
+      internalID: -953027357064926513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_9
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 248
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b68479639300fe20800000000000000
+      internalID: 3382207251819562680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_10
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 236
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bd41722c3870350800000000000000
+      internalID: 5982895499887565654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 248
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87bc10b4e81e99510800000000000000
+      internalID: 1556523147493231480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_12
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 219
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fea5f3622887ee40800000000000000
+      internalID: 5685662735865851636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_13
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 200
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988d1c9cb1428ffb0800000000000000
+      internalID: -4613898116473431927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_14
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 235
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0df0d4bd948d8ec0800000000000000
+      internalID: -3563045917301867250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_15
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 231
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b425d10af9dc96360800000000000000
+      internalID: 7163482767779254859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_16
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 191
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596a9edaef1065d40800000000000000
+      internalID: 5572643782268659349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_17
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 194
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e31a32ed662e1090800000000000000
+      internalID: -8061964029557861407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_18
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 180
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d32e2d003d1e0fb60800000000000000
+      internalID: 7777964852837016125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 84
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e510f6f28fcdafd0800000000000000
+      internalID: -2328977270885050906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_20
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 75
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fb66dbfa1755260800000000000000
+      internalID: 7085694588348186457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_21
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 60
+        width: 65
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda9a64c5c2318a10800000000000000
+      internalID: 1909863541967067869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_22
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 73
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f3c92d7e3878970800000000000000
+      internalID: 8757113032139358024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a23ac1e4c61389560800000000000000
+      internalID: 7320655535527469866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Catmedkit_24
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 10
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2167ae95b91b30ae0800000000000000
+      internalID: -1584227363117697518
       vertices: []
       indices: 
       edges: []
@@ -149,7 +725,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f93df11e7e232734fa8e5128de1c4f2b
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +733,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CatMedkit_0: -9126097122877174288
+      Catmedkit_0: 8229990744697035800
+      Catmedkit_1: 3518710823688639086
+      Catmedkit_10: 5982895499887565654
+      Catmedkit_11: 1556523147493231480
+      Catmedkit_12: 5685662735865851636
+      Catmedkit_13: -4613898116473431927
+      Catmedkit_14: -3563045917301867250
+      Catmedkit_15: 7163482767779254859
+      Catmedkit_16: 5572643782268659349
+      Catmedkit_17: -8061964029557861407
+      Catmedkit_18: 7777964852837016125
+      Catmedkit_19: -2328977270885050906
+      Catmedkit_2: -2234990296758352216
+      Catmedkit_20: 7085694588348186457
+      Catmedkit_21: 1909863541967067869
+      Catmedkit_22: 8757113032139358024
+      Catmedkit_23: 7320655535527469866
+      Catmedkit_24: -1584227363117697518
+      Catmedkit_3: 7369381779983581871
+      Catmedkit_4: 1063790102097577305
+      Catmedkit_5: -8985326429091584158
+      Catmedkit_6: 8581401782232194972
+      Catmedkit_7: -8475016402338273211
+      Catmedkit_8: -953027357064926513
+      Catmedkit_9: 3382207251819562680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

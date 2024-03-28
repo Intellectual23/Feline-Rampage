@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 0
   <Name>k__BackingField: AppleCore
-  <Description>k__BackingField: 
+  <Description>k__BackingField: AGL up
   <Rarity>k__BackingField: 1
   <Icon>k__BackingField: {fileID: 814740214178846911, guid: e21500bda90c83c4485ba202e9727ef1, type: 3}
   <StatToBuff>k__BackingField: 2

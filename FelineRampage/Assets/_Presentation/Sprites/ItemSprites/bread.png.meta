@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 70343c3c85f5dac4fbd8bfad274f757e
+guid: 172d6499399f3da45ad8ebfa5f95eeb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7795288705938499624
-    second: catCane_0
+      213: -4431494890709657585
+    second: bread_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catCane_0
+      name: bread_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 9
-        width: 373
-        height: 529
+        x: 65
+        y: 84
+        width: 255
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 828241fd6cd6e2c60800000000000000
-      internalID: 7795288705938499624
+      spriteID: f08da4f30ea2082c0800000000000000
+      internalID: -4431494890709657585
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      catCane_0: 7795288705938499624
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,7 +13,7 @@ namespace Item
   public class ItemView : MonoBehaviour
   {
     private Item _item;
-
+    public int _slotId = -1;
     public void Init(Item item)
     {
       _item = item;
@@ -24,6 +27,7 @@ namespace Item
       if (_item._isInInventory)
       {
         gameObject.SetActive(Inventory.Instance.IsActive);
+        transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
       }
     }
     private void OnMouseDown()
@@ -35,11 +39,17 @@ namespace Item
         Debug.Log(Inventory.Instance.Count);
         Vector3 newPosition = Inventory.Instance.transform.GetChild(Inventory.Instance.Count).position;
         ItemGenerator.Instance.SpawnToInventory(_item, newPosition);
-        Inventory.Instance.Count++;
         Destroy(gameObject);
       }
       else
       {
+        if (_item.GetType() == typeof(Consumable))
+        {
+          Consumable item = _item as Consumable;
+          item?.Use();
+          Inventory.Instance.DeleteFromSlot(_slotId);
+          Destroy(gameObject);
+        }
         Debug.Log(_item.ItemAsset.Description);
       }
       //Inventory.Instance.Items.Add(this);

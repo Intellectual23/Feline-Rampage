@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 352cf9de266f8c34390fec4c687e330f
+guid: 1ee13ae7e14556b4e9f644c87bd0f07f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3058490366511055864
-    second: rat(1)_0
+      213: 108754058613412545
+    second: DogSnack2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat(1)_0
+      name: DogSnack2_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 15
-        width: 217
-        height: 111
+        x: 38
+        y: 43
+        width: 299
+        height: 289
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f388d4a8c0f17a20800000000000000
-      internalID: 3058490366511055864
+      spriteID: 1c2d8877d3f528100800000000000000
+      internalID: 108754058613412545
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      rat(1)_0: 3058490366511055864
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

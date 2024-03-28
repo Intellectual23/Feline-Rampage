@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 352cf9de266f8c34390fec4c687e330f
+guid: 0cf209a3ffe1ad54d9088548e3c1f909
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3058490366511055864
-    second: rat(1)_0
+      213: -2426112967884359310
+    second: RottenTomato_0
+  - first:
+      213: -6383728043108676051
+    second: RottenTomato_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat(1)_0
+      name: RottenTomato_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 15
-        width: 217
-        height: 111
+        x: 64
+        y: 4
+        width: 225
+        height: 318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +143,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f388d4a8c0f17a20800000000000000
-      internalID: 3058490366511055864
+      spriteID: 279b84c1c17b45ed0800000000000000
+      internalID: -2426112967884359310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RottenTomato_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 259
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ececfca217867a0800000000000000
+      internalID: -6383728043108676051
       vertices: []
       indices: 
       edges: []
@@ -156,8 +180,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      rat(1)_0: 3058490366511055864
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
