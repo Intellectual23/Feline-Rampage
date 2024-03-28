@@ -7,9 +7,11 @@ using UnityEngine;
 public class UnitGenerator: MonoBehaviour
 {
   public static UnitGenerator Instance;
-  [SerializeField] private GameObject _unitPrefab;
+  // rat goblin skeleton
   public List<UnitSettings> _units = new();
+  public List<GameObject> _unitPrefabs = new();
   private List<Vector3> _spawnPositions = new();
+  private bool isMobsSpawned = false;
     
   private void Awake()
   {
@@ -27,6 +29,7 @@ public class UnitGenerator: MonoBehaviour
 
   private void Start()
   {
+    Debug.Log("start");
     RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
     foreach (Transform childTransform in parentPosition.transform)
     {
@@ -36,7 +39,7 @@ public class UnitGenerator: MonoBehaviour
     GenerateMobs();
   }
 
-  private void Unpdate()
+  private void Update()
   {
     RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
     foreach (Transform childTransform in parentPosition.transform)
@@ -44,28 +47,30 @@ public class UnitGenerator: MonoBehaviour
       Vector3 positionRelativeToParent = childTransform.localPosition;
       _spawnPositions.Add(positionRelativeToParent);
     }
-    GenerateMobs();
   }
 
   void GenerateMobs()
   {
-    // достаём ассеты мобов
-    var unitAssets = _units;
     // рандом числа генерации
-    int amountOfMobs = UnityEngine.Random.Range(0, 3);
+    int amountOfMobs = UnityEngine.Random.Range(0, 3) + 1;
     Debug.Log($"amount of enemies: {amountOfMobs}");
-    // колво крыс для спавна
-    for (int i = 0; i <= amountOfMobs; ++i)
+    // колво мобов для спавна
+    for (int i = 1; i <= amountOfMobs; ++i)
     {
-      SpawnMobs(unitAssets[0], _spawnPositions[i]);
+      int assetNumber = UnityEngine.Random.Range(0, 3);
+      Debug.Log(_units[assetNumber].name);
+      SpawnMobs(assetNumber, _spawnPositions[i - 1]);
     }
   }
 
-  private void SpawnMobs(UnitSettings unitAsset, Vector3 position)
+  private void SpawnMobs(int assetNumber, Vector3 position)
   {
-    var mob = new Unit.Unit(unitAsset);
-    GameObject unitObject = Instantiate(_unitPrefab, position, Quaternion.identity);
+    Debug.Log("spawn");
+    var mob = new Unit.Unit(_units[assetNumber]);
+    GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
     UnitView itemView = unitObject.GetComponent<UnitView>();
+    Debug.Log(itemView.name);
+    Debug.Log(mob.UnitSettings.name);
     itemView.Init(mob);
   }
 }

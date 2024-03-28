@@ -34,6 +34,7 @@ namespace Unit
     {
       if (_unit.UnitSettings.Hp <= 0)
       {
+        Debug.Log("update found defeated enemy");
         Destroy(gameObject);
         ResetHealth();
       }

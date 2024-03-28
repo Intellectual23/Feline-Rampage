@@ -987,9 +987,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642a8576643d41a7b2d33ff6a3df5f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 8992470087622475096, guid: fcaa06bdf190a3b4e9339ccafb2bb449, type: 3}
   _units:
+  - {fileID: 11400000, guid: 0c673c2ced838ff4fbd760254e14b752, type: 2}
+  - {fileID: 11400000, guid: 9bd7f9eb44b9ce14591ec63e9cbd5a58, type: 2}
   - {fileID: 11400000, guid: 863861bbe4687994b85134b77d4f7ba4, type: 2}
+  _unitPrefabs:
+  - {fileID: 8992470087622475096, guid: cadab9f520052a84fb47272841a6cd80, type: 3}
+  - {fileID: 3154831163559139397, guid: 47649820ec1eed945adb82e23617a9fe, type: 3}
+  - {fileID: 8992470087622475096, guid: 803be974348fe1d40b9041f39edaa690, type: 3}
 --- !u!4 &1335725720
 Transform:
   m_ObjectHideFlags: 0
