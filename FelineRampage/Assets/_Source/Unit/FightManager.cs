@@ -28,7 +28,7 @@ namespace Unit
 
       DontDestroyOnLoad(this);
     }
-
+    
     public IEnumerator FightMode()
     {
       Debug.Log("fight mode coroutine");
@@ -40,15 +40,19 @@ namespace Unit
       }
       while (Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
       {
-        if (playerTurn)
+        if (playerTurn && Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
         {
           yield return StartCoroutine(PlayerTurn());
         }
-        else
+        else if (!playerTurn && Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
         {
+          Debug.Log(Enemy.UnitSettings.Hp);
           yield return StartCoroutine(EnemyTurn());
         }
-
+        else
+        {
+          break;
+        }
         playerTurn = !playerTurn;
       }
 
@@ -64,36 +68,47 @@ namespace Unit
     {
       Debug.Log("Player's turn. Click on the enemy to attack.");
 
-      // Ждем клика по юниту
-      yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+      bool isRightClickReceived = false;
 
-      // Наносим урон юниту
-      switch (Part)
+      while (!isRightClickReceived)
       {
-        case "Head":
-          MainCharAttackToHead(Game.Instance.Settings, rnd);
-          break;
-        case "Legs":
-          MainCharAttackToLegs(Game.Instance.Settings, rnd);
-          break;
-        case "Body":
-          MainCharAttackToBody(Game.Instance.Settings, rnd);
-          break;
-        default:
-          Debug.Log("attack is missed");
-          break;
+        // Ждем клика по юниту
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+      
+        // Наносим урон юниту
+        switch (Part)
+        {
+          case "Head":
+            MainCharAttackToHead(Game.Instance.Settings, rnd);
+            isRightClickReceived = true;
+            break;
+          case "Legs":
+            MainCharAttackToLegs(Game.Instance.Settings, rnd);
+            isRightClickReceived = true;
+            break;
+          case "Body":
+            MainCharAttackToBody(Game.Instance.Settings, rnd);
+            isRightClickReceived = true;
+            break;
+          default:
+            Debug.Log("click retry");
+            break;
+        }
       }
+      
       yield return null;
     }
 
     private IEnumerator EnemyTurn()
     {
-      Debug.Log("Enemy's turn. Attacking player.");
+      if (Enemy.UnitSettings.Hp > 0)
+      {
+        Debug.Log("Enemy's turn. Attacking player.");
+        // Юнит наносит урон игроку
+        MobTurn(rnd);
+      }
 
-      // Юнит наносит урон игроку
-      MobTurn(rnd);
-
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(60);
     }
     
     private void MainCharAttackToBody(UnitSettings unit, Random rnd)

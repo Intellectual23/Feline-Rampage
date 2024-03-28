@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4680666190962773215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.02, z: -1}
+  m_LocalPosition: {x: 0.47, y: -1.43, z: -1}
   m_LocalScale: {x: 4.6839, y: 4.1831, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.0932758, y: 0.65097094, z: 1}
-  m_Center: {x: 0.046637688, y: 0.174514, z: 0}
+  m_Size: {x: 1.2742624, y: 0.78123546, z: 1}
+  m_Center: {x: 0.0013913987, y: -0.22974007, z: 0}
 --- !u!114 &2085874129967726896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,8 +119,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.4560145, y: 0.3385299, z: 1}
-  m_Center: {x: 0.22800614, y: -0.3307336, z: 0}
+  m_Size: {x: 1.8019971, y: 0.49228483, z: 1}
+  m_Center: {x: 0.10526765, y: -1.1978236, z: 0}
 --- !u!114 &1788355137410002499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6773144559215782111, guid: 858ae8d78b4676b499aa34a91f365ede, type: 3}
+  m_Sprite: {fileID: 2572365745140355499, guid: e4ad47fa22ed67445b05ae0d64980cf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -276,8 +276,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.42650098, y: 0.60655844, z: 1}
-  m_Center: {x: 0.81579834, y: 0.15115198, z: 0}
+  m_Size: {x: 1.6185734, y: 1.5795374, z: 1}
+  m_Center: {x: 0.07783977, y: 0.64243823, z: 0}
 --- !u!114 &9171174576466084223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: -2903059303843654065}
   - component: {fileID: 2671411553679239795}
   m_Layer: 0
-  m_Name: UnitPrefab
+  m_Name: GoblinPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0.76, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4953359124577840737}
@@ -359,5 +359,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.292879, y: 4.9375143, z: 1}
-  m_Center: {x: -0.019669134, y: -0.039501287, z: 0}
+  m_Size: {x: 14.08074, y: 12.443235, z: 1}
+  m_Center: {x: 0.1292324, y: -0.080008306, z: 0}
