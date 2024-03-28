@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 63ef8e8f30c65d14c808debc0eaf0eb5
+guid: 1ee13ae7e14556b4e9f644c87bd0f07f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8624196928067333832
-    second: camembert_0
+      213: 108754058613412545
+    second: DogSnack2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camembert_0
+      name: DogSnack2_0
       rect:
         serializedVersion: 2
-        x: 106
-        y: 140
-        width: 298
-        height: 230
+        x: 38
+        y: 43
+        width: 299
+        height: 289
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 831188d3692b05880800000000000000
-      internalID: -8624196928067333832
+      spriteID: 1c2d8877d3f528100800000000000000
+      internalID: 108754058613412545
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      camembert_0: -8624196928067333832
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
