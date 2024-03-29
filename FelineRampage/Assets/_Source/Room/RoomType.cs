@@ -6,6 +6,7 @@
     BasicRoom,
     Treasures,
     Boss,
-    StartRoom
+    StartRoom,
+    Deadend
   }
 }

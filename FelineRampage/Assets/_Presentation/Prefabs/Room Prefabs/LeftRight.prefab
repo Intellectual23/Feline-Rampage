@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2469547091602338876}
   - component: {fileID: 8904120850030201140}
   m_Layer: 5
-  m_Name: Front
+  m_Name: LeftRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9040879190431018056, guid: c7374fd3fa246d04193665067b41c8b8, type: 3}
+  m_Sprite: {fileID: -4305030903328525383, guid: c4dd386dc92958f49879ae9980d86504, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Front
-  _hasLeftPath: 0
-  _hasRightPath: 0
-  _hasFrontPath: 1
+  _hasLeftPath: 1
+  _hasRightPath: 1
+  _hasFrontPath: 0
   _hasBackPath: 1
   _roomType: 1
 --- !u!61 &8904120850030201140

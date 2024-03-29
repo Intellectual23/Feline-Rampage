@@ -29,7 +29,7 @@ namespace Room
       if (other.CompareTag("MainCamera"))
       {
         Game.Instance.CurrentRoom = this;
-        Debug.Log(other.name);
+        RoomActivity();
       }
     }
 
@@ -41,19 +41,21 @@ namespace Room
           //ItemGenerator.Instance.GenerateShopItems();
           break;
         case RoomType.BasicRoom:
-          // some methods
+          UnitGenerator.Instance.MobsOrEmpty();
           break;
         case RoomType.Treasures:
-          // ItemGenerator.Instance.GenerateTreasureItems();
+          ItemGenerator.Instance.GenerateItems();
           break;
         case RoomType.Boss:
-          // UnitGenerator.Instance.SpawnBoobs()
+          UnitGenerator.Instance.SpawnBoss();
           break;
         case RoomType.StartRoom:
           // show the rules of the game
           break;
+        case RoomType.Deadend:
+          break;
         default:
-          Debug.Log("switch in roomview cannot assess the type of the room");
+          Debug.Log("switch in room view cannot assess the type of the room");
           break;
       }
     }

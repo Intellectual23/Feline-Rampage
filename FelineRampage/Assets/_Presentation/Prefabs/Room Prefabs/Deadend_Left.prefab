@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2469547091602338876}
   - component: {fileID: 8904120850030201140}
   m_Layer: 5
-  m_Name: FrontRight
+  m_Name: Deadend_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 504642187866391327, guid: 8972f81fef4fdf64ea786b27968afb0c, type: 3}
+  m_Sprite: {fileID: -8648439807666704860, guid: 433118341c18fce45b02e630c31e5269, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Front
-  _hasLeftPath: 0
-  _hasRightPath: 1
-  _hasFrontPath: 1
-  _hasBackPath: 1
+  _hasLeftPath: 1
+  _hasRightPath: 0
+  _hasFrontPath: 0
+  _hasBackPath: 0
   _roomType: 1
 --- !u!61 &8904120850030201140
 BoxCollider2D:
@@ -252,7 +252,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.2, y: 10.8}
+    oldSize: {x: 19.2, y: 10.79}
     newSize: {x: 19.2, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

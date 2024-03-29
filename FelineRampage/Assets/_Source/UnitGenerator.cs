@@ -12,6 +12,8 @@ public class UnitGenerator: MonoBehaviour
   public List<GameObject> _unitPrefabs = new();
   private List<Vector3> _spawnPositions = new();
   private bool isMobsSpawned = false;
+  public UnitSettings _bossAsset;
+  public GameObject _bossPrefab;
     
   private void Awake()
   {
@@ -49,6 +51,26 @@ public class UnitGenerator: MonoBehaviour
     }
   }
 
+  public void SpawnBoss()
+  {
+    var boss = new Unit.Unit(_bossAsset);
+    GameObject unitObject = Instantiate(_bossPrefab, _spawnPositions[1], Quaternion.identity);
+    UnitView unitView = unitObject.GetComponent<UnitView>();
+    unitView.Init(boss);
+  }
+
+  public void MobsOrEmpty()
+  {
+    int curProbability = UnityEngine.Random.Range(1, 101);
+    int emptinessProbability = 20;
+    // 1-emptinessProbability => empty
+    // emptinessProbability+1 - 100 => mobs
+    if (curProbability >= emptinessProbability+1 && curProbability <= 100)
+    {
+      GenerateMobs();
+    }
+  }
+
   void GenerateMobs()
   {
     // рандом числа генерации
@@ -65,12 +87,10 @@ public class UnitGenerator: MonoBehaviour
 
   private void SpawnMobs(int assetNumber, Vector3 position)
   {
-    Debug.Log("spawn");
+    Debug.Log("spawn mob");
     var mob = new Unit.Unit(_units[assetNumber]);
     GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
-    UnitView itemView = unitObject.GetComponent<UnitView>();
-    Debug.Log(itemView.name);
-    Debug.Log(mob.UnitSettings.name);
-    itemView.Init(mob);
+    UnitView unitView = unitObject.GetComponent<UnitView>();
+    unitView.Init(mob);
   }
 }
