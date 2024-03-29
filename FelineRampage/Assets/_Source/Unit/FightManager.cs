@@ -38,13 +38,13 @@ namespace Unit
       {
         playerTurn = false;
       }
-      while (Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
+      while (Game.Instance.CurrentHealth > 0 && Enemy.UnitSettings.Hp > 0)
       {
-        if (playerTurn && Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
+        if (playerTurn && Game.Instance.CurrentHealth > 0 && Enemy.UnitSettings.Hp > 0)
         {
           yield return StartCoroutine(PlayerTurn());
         }
-        else if (!playerTurn && Game.Instance.Settings.Hp > 0 && Enemy.UnitSettings.Hp > 0)
+        else if (!playerTurn && Game.Instance.CurrentHealth > 0 && Enemy.UnitSettings.Hp > 0)
         {
           Debug.Log(Enemy.UnitSettings.Hp);
           yield return StartCoroutine(EnemyTurn());
@@ -110,7 +110,7 @@ namespace Unit
       int mainCharacterAttackValue = MainCharacterAttack(unit.Strength, unit.Luck, rnd, false);
       Debug.Log($"main character's turn. his attack: {mainCharacterAttackValue}");
       int mobAgilityToUse = Enemy.UnitSettings.Agility;
-      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, rnd, mainCharacterAttackValue, false)) return;
+      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, Enemy.UnitSettings.Hp, rnd, mainCharacterAttackValue, false)) return;
       Debug.Log("mob was defeated. death");
     }
 
@@ -122,7 +122,7 @@ namespace Unit
       int mainCharacterAttackValue = MainCharacterAttack(unit.Strength, newLuck, rnd, true);
       Debug.Log($"main character's turn. his attack: {mainCharacterAttackValue}");
       int mobAgilityToUse = Enemy.UnitSettings.Agility;
-      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, rnd, mainCharacterAttackValue, false)) return;
+      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, Enemy.UnitSettings.Hp, rnd, mainCharacterAttackValue, false)) return;
       Debug.Log("mob was defeated. death");
     }
 
@@ -142,7 +142,7 @@ namespace Unit
       {
         mobAgilityToUse += 2;
       }
-      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, rnd, mainCharacterAttackValue, true)) return;
+      if (ReceiveDamage(mobAgilityToUse, Enemy.UnitSettings, Enemy.UnitSettings.Hp, rnd, mainCharacterAttackValue, true)) return;
       Debug.Log("mob was defeated. death");
     }
       
@@ -175,7 +175,7 @@ namespace Unit
     {
       int mobAttackValue = MobAttack(Enemy.UnitSettings, rnd);
       Debug.Log($"mob's turn. his attack: {mobAttackValue}");
-      if (ReceiveDamage(Game.Instance.Settings.Agility, Game.Instance.Settings, rnd, mobAttackValue, false)) return;
+      if (ReceiveDamage(Game.Instance.Settings.Agility, Game.Instance.Settings, Game.Instance.CurrentHealth, rnd, mobAttackValue, false)) return;
       Debug.Log("main char was defeated");
     }
 
@@ -199,7 +199,7 @@ namespace Unit
       return 2 * defaultDamage;
     }
 
-    private static bool ReceiveDamage(int agilityToUse, UnitSettings unit, Random rnd, int damage, bool toLegs)
+    private static bool ReceiveDamage(int agilityToUse, UnitSettings unit, int opponentHp, Random rnd, int damage, bool toLegs)
     {
       int dodgeProbability = (agilityToUse * 3);
       int cubeParameter = rnd.Next(1, 101);
@@ -211,14 +211,14 @@ namespace Unit
         return true;
       }
 
-      Debug.Log($"opponent haven't dodged and got attacked. hp before attach: {unit.Hp}");
-      unit.Hp -= damage;
-      Debug.Log($"his hp after: {unit.Hp}");
+      Debug.Log($"opponent haven't dodged and got attacked. hp before attach: {opponentHp}");
+      opponentHp -= damage;
+      Debug.Log($"his hp after: {opponentHp}");
       if (toLegs)
       {
         unit.Agility -= (unit.Agility / 2);
       }
-      return unit.Hp > 0;
+      return opponentHp > 0;
     }
   }
 }

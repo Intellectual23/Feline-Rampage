@@ -606,6 +606,8 @@ MonoBehaviour:
   - {fileID: 8992470087622475096, guid: cadab9f520052a84fb47272841a6cd80, type: 3}
   - {fileID: 3154831163559139397, guid: 47649820ec1eed945adb82e23617a9fe, type: 3}
   - {fileID: 8992470087622475096, guid: 803be974348fe1d40b9041f39edaa690, type: 3}
+  _bossAsset: {fileID: 11400000, guid: a578a2aad74db6142a7b92b0e5f4d34a, type: 2}
+  _bossPrefab: {fileID: 3154831163559139397, guid: cde55cb0a514c2f42b85ce750f06211b, type: 3}
 --- !u!4 &1335725720
 Transform:
   m_ObjectHideFlags: 0
