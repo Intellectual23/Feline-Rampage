@@ -8,8 +8,8 @@ public class Inventory : MonoBehaviour
 {
   public static Inventory Instance;
   public bool IsActive { get; set; } = false;
-  public int Count { get; set; } = 0;
-  
+  public List<ItemView> Items;
+  public List<InventorySlot> Slots;
 
   private void Awake()
   {
@@ -27,9 +27,34 @@ public class Inventory : MonoBehaviour
 
   private void Start()
   {
+    foreach (Transform childTransform in transform)
+    {
+      Slots.Add(childTransform.transform.GetComponent<InventorySlot>());
+    }
     gameObject.SetActive(false);
   }
 
+  private void Update()
+  {
+    foreach (ItemView item in Items)
+    {
+      item.gameObject.SetActive(IsActive);
+    }
+  }
+
+  public void RecalculateItems()
+  {
+    for (int i = 0; i < Items.Count; ++i)
+    {
+      
+      Items[i]._slotId = i;
+      Slots[i].Item = Items[i];
+      Items[i].transform.position = Slots[i].transform.position;
+      Slots[i].IsFilled = true;
+      Debug.Log(Items.Count);
+      Debug.Log(Slots.Count);
+    }
+  }
   public void Open()
   {
     IsActive = true;
@@ -42,9 +67,11 @@ public class Inventory : MonoBehaviour
     gameObject.SetActive(false);
   }
 
-  public void AddToSlot(int index, GameObject item)
+  public void Add(ItemView item)
   {
-    var slot = transform.GetChild(index).GetComponent<InventorySlot>();
+    item._slotId = Items.Count;
+    Items.Add(item);
+    var slot = transform.GetChild(item._slotId).GetComponent<InventorySlot>();
     slot.Item = item;
     slot.IsFilled = true;
   }
@@ -52,8 +79,10 @@ public class Inventory : MonoBehaviour
   public void DeleteFromSlot(int index)
   {
     var slot = transform.GetChild(index).GetComponent<InventorySlot>();
+    Items.Remove(slot.Item);
     slot.Item = null;
     slot.IsFilled = false;
+    RecalculateItems();
   } 
 
   public void ClickManager()

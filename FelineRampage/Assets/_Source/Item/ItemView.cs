@@ -1,15 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework.Internal;
-using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 namespace Item
 {
@@ -31,6 +20,7 @@ namespace Item
       {
         gameObject.SetActive(Inventory.Instance.IsActive);
         transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        transform.position = Inventory.Instance.Slots[_slotId].transform.position;
       }
     }
     private void OnMouseDown()
@@ -66,8 +56,7 @@ namespace Item
     {
       _item._itemStatus = ItemStatus.Inventory;
       _item.Collect();
-      Debug.Log(Inventory.Instance.Count);
-      Vector3 newPosition = Inventory.Instance.transform.GetChild(Inventory.Instance.Count).position;
+      Vector3 newPosition = Inventory.Instance.transform.GetChild(Inventory.Instance.Items.Count).position;
       ItemGenerator.Instance.SpawnToInventory(_item, newPosition);
       Destroy(gameObject);
     }

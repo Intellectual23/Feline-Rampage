@@ -120,9 +120,8 @@ public class ItemGenerator : MonoBehaviour
     GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
-    Inventory.Instance.AddToSlot(Inventory.Instance.Count, itemObject);
-    itemView._slotId = Inventory.Instance.Count;
-    Inventory.Instance.Count++;
+    int index = Inventory.Instance.Items.Count;
+    Inventory.Instance.Add(itemView);
   }
 
   private void GenerateCommonSet()
