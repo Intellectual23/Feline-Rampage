@@ -52,8 +52,6 @@ namespace Unit
         else
         {
           Enemy.IsFighting = false;
-          Game.Instance.CoinBalance += 5;
-          ItemGenerator.Instance.GenerateEnemyDrop();
           Debug.Log("Battle ended.");
           yield break;
         }

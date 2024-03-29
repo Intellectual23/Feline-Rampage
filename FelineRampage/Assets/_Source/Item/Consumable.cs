@@ -4,7 +4,7 @@ namespace Item
 {
   public class Consumable: Item
   {
-    public Consumable(ItemAsset itemAsset, bool isInInventory) : base(itemAsset, isInInventory) { }
+    public Consumable(ItemAsset itemAsset, ItemStatus itemStatus) :base(itemAsset, itemStatus) { }
 
     public override void Collect()
     {

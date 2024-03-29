@@ -30,18 +30,34 @@ public class ItemGenerator : MonoBehaviour
     RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
     foreach (Transform childTransform in parentPosition.transform)
     {
-      Vector3 positionRelativeToParent = childTransform.localPosition;
+      Vector3 positionRelativeToParent = childTransform.position;
       _spawnPositions.Add(positionRelativeToParent);
     }
-
     //GenerateEnemyDrop();
-    GenerateItems();
+    //GenerateItems();
+  }
+
+  private void Update()
+  {
+    //UpdateSpawnPositions();
+  }
+
+  private void UpdateSpawnPositions()
+  {
+    _spawnPositions.Clear();
+    RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
+    foreach (Transform childTransform in parentPosition.transform)
+    {
+      Vector3 positionRelativeToParent = childTransform.position;
+      _spawnPositions.Add(positionRelativeToParent);
+    }
   }
 
   public void GenerateItems()
   {
+    UpdateSpawnPositions();
+    int gen = UnityEngine.Random.Range(1,101);
     int setType = UnityEngine.Random.Range(1, 4);
-    Debug.Log(setType);
     switch (setType)
     {
       case 1:
@@ -56,14 +72,47 @@ public class ItemGenerator : MonoBehaviour
     }
   }
 
-  public void GenerateEnemyDrop()
+  public void GenerateEnemyDrop(Vector3 position)
   {
-    int q = UnityEngine.Random.Range(0, 4);
+    int spawn = UnityEngine.Random.Range(0, 2);
     var consumableAssets = GetConsumableAssets();
-    for (int i = 0; i < q; ++i)
+    if (spawn == 0)
     {
-      SpawnConsumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)], _spawnPositions[i]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)], ItemStatus.Default), position);
     }
+  }
+
+  public void GenerateShopItems()
+  {
+    UpdateSpawnPositions();
+    var epicAssets = GetEpicAssets();
+    var rareAssets = GetRareAssets();
+    var commonAssets = GetCommonAssets();
+    var consumableAssets = GetConsumableAssets();
+    int luck = Game.Instance.Settings.Luck;
+    if (luck < 3)
+    {
+      SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Shop), _spawnPositions[0]);
+      SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Shop), _spawnPositions[1]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Shop), _spawnPositions[2]);
+    }
+    else if (luck < 5)
+    {
+      SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Shop), _spawnPositions[0]);
+      SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Shop), _spawnPositions[1]);
+      SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Shop), _spawnPositions[2]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Shop), _spawnPositions[3]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Shop), _spawnPositions[4]);
+    }
+    else if (luck == 5)
+    {
+      SpawnItem(new Artifact(epicAssets[UnityEngine.Random.Range(0, epicAssets.Count)],ItemStatus.Shop), _spawnPositions[0]);
+      SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Shop), _spawnPositions[1]);
+      SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Shop), _spawnPositions[2]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Shop), _spawnPositions[3]);
+      SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Shop), _spawnPositions[4]);
+    }
+
   }
 
   public void SpawnToInventory(Item.Item item, Vector3 position)
@@ -85,11 +134,11 @@ public class ItemGenerator : MonoBehaviour
     switch (setVar)
     {
       case 1:
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[0]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
         break;
       case 2:
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[0]);
-        SpawnConsumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)], _spawnPositions[1]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Default), _spawnPositions[1]);
         break;
     }
   }
@@ -103,20 +152,20 @@ public class ItemGenerator : MonoBehaviour
     switch (setVar)
     {
       case 1:
-        SpawnArtifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], _spawnPositions[0]);
+        SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Default), _spawnPositions[0]);
         break;
       case 2:
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[0]);
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[1]);
+        SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Default), _spawnPositions[1]);
         break;
       case 3:
-        SpawnArtifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], _spawnPositions[0]);
-        SpawnConsumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)], _spawnPositions[1]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[1]);
         break;
     }
   }
 
-  private void GenerateEpicSet() // Can be simplier!
+  private void GenerateEpicSet()
   {
     var epicAssets = GetEpicAssets();
     var rareAssets = GetRareAssets();
@@ -126,20 +175,20 @@ public class ItemGenerator : MonoBehaviour
     switch (setVar)
     {
       case 1:
-        SpawnArtifact(epicAssets[UnityEngine.Random.Range(0, epicAssets.Count)], _spawnPositions[0]);
+        SpawnItem(new Artifact(epicAssets[UnityEngine.Random.Range(0, epicAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
         break;
       case 2:
-        SpawnArtifact(epicAssets[UnityEngine.Random.Range(0, epicAssets.Count)], _spawnPositions[0]);
-        SpawnConsumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)], _spawnPositions[1]);
+        SpawnItem(new Artifact(epicAssets[UnityEngine.Random.Range(0, epicAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Consumable(consumableAssets[UnityEngine.Random.Range(0, consumableAssets.Count)],ItemStatus.Default), _spawnPositions[1]);
         break;
       case 3:
-        SpawnArtifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], _spawnPositions[0]);
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[1]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Default), _spawnPositions[0]);
         break;
       case 4:
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[0]);
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[1]);
-        SpawnArtifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)], _spawnPositions[2]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[1]);
+        SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[2]);
         break;
     }
   }
@@ -156,21 +205,10 @@ public class ItemGenerator : MonoBehaviour
   private List<ItemAsset> GetEpicAssets() =>
     _items.Where(asset => asset.Rarity == 3).Select(thisItem => thisItem).OrderBy(item => item.Id).ToList();
 
-  private void SpawnArtifact(ItemAsset itemAsset, Vector3 position) // add position or layout 
+  private void SpawnItem(Item.Item item, Vector3 position)
   {
-    var item = new Artifact(itemAsset, false);
     GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
-    //Game.Instance.Items.Add(item, itemView);
-  }
-
-  private void SpawnConsumable(ItemAsset itemAsset, Vector3 position) // add position or layout
-  {
-    var item = new Consumable(itemAsset, false);
-    GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
-    ItemView itemView = itemObject.GetComponent<ItemView>();
-    itemView.Init(item);
-    //Game.Instance.Items.Add(item, itemView);
   }
 }
