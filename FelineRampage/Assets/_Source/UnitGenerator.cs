@@ -53,6 +53,7 @@ public class UnitGenerator: MonoBehaviour
 
   public void SpawnBoss()
   {
+    UpdateSpawnPositions();
     var boss = new Unit.Unit(_bossAsset);
     GameObject unitObject = Instantiate(_bossPrefab, _spawnPositions[1], Quaternion.identity);
     UnitView unitView = unitObject.GetComponent<UnitView>();
@@ -70,6 +71,18 @@ public class UnitGenerator: MonoBehaviour
       GenerateMobs();
     }
   }
+  
+  private void UpdateSpawnPositions()
+  {
+    _spawnPositions.Clear();
+    RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
+    foreach (Transform childTransform in parentPosition.transform)
+    {
+      Vector3 positionRelativeToParent = childTransform.position;
+      _spawnPositions.Add(positionRelativeToParent);
+    }
+  }
+
 
   void GenerateMobs()
   {
@@ -77,6 +90,7 @@ public class UnitGenerator: MonoBehaviour
     int amountOfMobs = UnityEngine.Random.Range(0, 3) + 1;
     Debug.Log($"amount of enemies: {amountOfMobs}");
     // колво мобов для спавна
+    UpdateSpawnPositions();
     for (int i = 1; i <= amountOfMobs; ++i)
     {
       int assetNumber = UnityEngine.Random.Range(0, 3);
