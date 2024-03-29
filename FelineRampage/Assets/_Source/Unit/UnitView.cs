@@ -23,8 +23,8 @@ namespace Unit
     public Unit Unit()
     {
       return _unit;
-
     }
+
     public void Start()
     {
       _startHealth = _unit.UnitSettings.Hp;
@@ -35,6 +35,9 @@ namespace Unit
       if (_unit.UnitSettings.Hp <= 0)
       {
         Debug.Log("update found defeated enemy");
+        ItemGenerator.Instance.GenerateEnemyDrop(transform.position);
+        Game.Instance.CoinBalance +=
+          UnityEngine.Random.Range(Game.Instance.MinCoinsFromEnemy, Game.Instance.MaxCoinsFromEnemy + 1);
         Destroy(gameObject);
         ResetHealth();
       }
@@ -51,10 +54,10 @@ namespace Unit
       Collider collider = transform.GetComponent<Collider>();
       collider.enabled = false;
       Debug.Log(collider.enabled);
-        FightManager.Enemy = _unit;
-        EnableColliders();
-        _unit.IsFighting = true;
-        StartCoroutine(FightManager.Instance.FightMode());
+      FightManager.Enemy = _unit;
+      EnableColliders();
+      _unit.IsFighting = true;
+      StartCoroutine(FightManager.Instance.FightMode());
     }
 
     private void EnableColliders()
@@ -64,7 +67,7 @@ namespace Unit
         transform.GetChild(i).transform.GetComponent<Collider>().enabled = true;
       }
     }
-    
+
     private void DisableColliders()
     {
       for (int i = 0; i < 3; ++i)
@@ -72,6 +75,7 @@ namespace Unit
         transform.GetChild(i).transform.GetComponent<Collider>().enabled = false;
       }
     }
+
     private void ResetHealth()
     {
       _unit.UnitSettings.Hp = _startHealth;

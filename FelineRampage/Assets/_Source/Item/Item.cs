@@ -8,10 +8,10 @@ namespace Item
   public abstract class Item
   {
     protected ItemAsset _itemAsset;
-    public bool _isInInventory;
-    public Item(ItemAsset itemAsset, bool isInInventory)
+    public ItemStatus _itemStatus;
+    public Item(ItemAsset itemAsset, ItemStatus itemStatus)
     {
-      _isInInventory = isInInventory;
+      _itemStatus = itemStatus;
       _itemAsset = itemAsset;
     }
 

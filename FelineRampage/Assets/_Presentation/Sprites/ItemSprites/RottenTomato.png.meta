@@ -180,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RottenTomato_0: -2426112967884359310
+      RottenTomato_1: -6383728043108676051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

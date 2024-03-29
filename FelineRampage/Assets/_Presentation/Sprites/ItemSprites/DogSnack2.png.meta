@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DogSnack2_0: 108754058613412545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Green_Mushroom_0: -7833707414190393272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

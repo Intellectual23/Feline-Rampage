@@ -52,7 +52,6 @@ namespace Unit
         else
         {
           Enemy.IsFighting = false;
-          ItemGenerator.Instance.GenerateEnemyDrop();
           Debug.Log("Battle ended.");
           yield break;
         }

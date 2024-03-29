@@ -10,6 +10,11 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
   public static Game Instance;
+  [SerializeField]public int LvlId;
+  [SerializeField]public int BasicArtifactCost;
+  [SerializeField]public int BasicConsumableCost;
+  [SerializeField] public int MinCoinsFromEnemy;
+  [SerializeField] public int MaxCoinsFromEnemy;
   public int CurrentHealth { get; set; }
   [SerializeField] private UnitSettings StartSettings;
   [SerializeField] public UnitSettings Settings;

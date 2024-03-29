@@ -1,4 +1,6 @@
 ﻿using System;
+using Item;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Room
@@ -11,6 +13,7 @@ namespace Room
     public bool _hasFrontPath;
     public bool _hasBackPath;
     public RoomType _roomType;
+    private bool _isActive = true;
     
 
     private void Start()
@@ -29,7 +32,12 @@ namespace Room
       if (other.CompareTag("MainCamera"))
       {
         Game.Instance.CurrentRoom = this;
-        Debug.Log(other.name);
+        if (_isActive)
+        {
+          RoomActivity();
+          _isActive = false;
+        }
+        Debug.Log(name);
       }
     }
 
@@ -38,13 +46,14 @@ namespace Room
       switch (_roomType)
       {
         case RoomType.Shop:
-          //ItemGenerator.Instance.GenerateShopItems();
+          ItemGenerator.Instance.GenerateShopItems();
           break;
         case RoomType.BasicRoom:
           // some methods
           break;
         case RoomType.Treasures:
           // ItemGenerator.Instance.GenerateTreasureItems();
+          ItemGenerator.Instance.GenerateItems();
           break;
         case RoomType.Boss:
           // UnitGenerator.Instance.SpawnBoobs()
