@@ -39,12 +39,16 @@ public class Game : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    LoadStats();
+    //LoadStats();
+    Serializer s = new Serializer();
+    //s.LoadGameData();
   }
 
   // Update is called once per frame
   void Update()
   {
+    Serializer s = new Serializer();
+    s.SaveGameData();
   }
 
   private void LoadStats()
