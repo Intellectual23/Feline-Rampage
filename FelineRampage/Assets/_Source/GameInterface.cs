@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 public class GameInteface : MonoBehaviour
 {
   public TextMeshProUGUI _coinBalanceText;
-
   public TextMeshProUGUI _strengthText;
   public TextMeshProUGUI _agilityText;
   public TextMeshProUGUI _luckText;

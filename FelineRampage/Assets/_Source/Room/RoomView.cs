@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using Item;
 using NUnit.Framework;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Room
 {
@@ -14,10 +17,13 @@ namespace Room
     public bool _hasBackPath;
     public RoomType _roomType;
     private bool _isActive = true;
-    
+    //private bool _wasActivated = false;
+    private bool _hasFrontPathInitially;
+    public int _numberOfMobsHere = 0;
 
     private void Start()
     {
+      _hasFrontPathInitially = _hasFrontPath;
       RectTransform roomRectTransform = GetComponent<RectTransform>();
       foreach (Transform childTransform in transform)
       {
@@ -34,6 +40,7 @@ namespace Room
         Game.Instance.CurrentRoom = this;
         if (_isActive)
         {
+          Debug.Log("is active and was not activated");
           RoomActivity();
           _isActive = false;
         }
@@ -41,24 +48,39 @@ namespace Room
       }
     }
 
-    private void RoomActivity()
+    private void Update()
     {
+      if (_numberOfMobsHere != 0)
+      {
+        _hasFrontPath = false;
+      }
+      else
+      {
+        _hasFrontPath = _hasFrontPathInitially;
+      }
+    }
+
+    public void RoomActivity()
+    {
+      Debug.Log(_roomType);
       switch (_roomType)
       {
+        case RoomType.StartRoom:
+          Debug.Log("start room in switch");
+          // show the rules of the game
+          break;
         case RoomType.Shop:
           ItemGenerator.Instance.GenerateShopItems();
           break;
         case RoomType.BasicRoom:
-          UnitGenerator.Instance.MobsOrEmpty();
+          Debug.Log("basic room in switch");
+          _numberOfMobsHere += UnitGenerator.Instance.MobsOrEmpty();
           break;
         case RoomType.Treasures:
           ItemGenerator.Instance.GenerateItems();
           break;
         case RoomType.Boss:
           UnitGenerator.Instance.SpawnBoss();
-          break;
-        case RoomType.StartRoom:
-          // show the rules of the game
           break;
         case RoomType.Deadend:
           break;

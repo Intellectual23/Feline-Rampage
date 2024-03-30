@@ -40,6 +40,7 @@ public class Game : MonoBehaviour
   void Start()
   {
     LoadStats();
+    CurrentRoom.RoomActivity();
   }
 
   // Update is called once per frame
