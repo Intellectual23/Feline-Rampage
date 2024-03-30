@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class GameInteface : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameInteface : MonoBehaviour
   public TextMeshProUGUI _strengthText;
   public TextMeshProUGUI _agilityText;
   public TextMeshProUGUI _luckText;
+
+  public Button _pauseButton;
   //public Sprite _characterIcon;
   public static GameInteface Instance;
 
@@ -38,5 +41,10 @@ public class GameInteface : MonoBehaviour
     _agilityText.text = $"AGL: {Game.Instance.Settings.Agility}";
     _luckText.text = $"LUCK: {Game.Instance.Settings.Luck}";
 
+  }
+
+  public void Pause()
+  {
+    transform.GetChild(3).transform.GetChild(1).gameObject.SetActive(true);
   }
 }

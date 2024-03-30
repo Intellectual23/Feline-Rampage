@@ -40,17 +40,7 @@ public class UnitGenerator: MonoBehaviour
     }
     GenerateMobs();
   }
-
-  private void Update()
-  {
-    RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
-    foreach (Transform childTransform in parentPosition.transform)
-    {
-      Vector3 positionRelativeToParent = childTransform.localPosition;
-      _spawnPositions.Add(positionRelativeToParent);
-    }
-  }
-
+  
   public void SpawnBoss()
   {
     var boss = new Unit.Unit(_bossAsset);
