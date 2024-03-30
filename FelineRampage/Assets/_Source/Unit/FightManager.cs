@@ -69,7 +69,7 @@ namespace Unit
       {
         // Ждем клика по юниту
         yield return new WaitUntil(() => Input.GetMouseButtonDown(1));
-      
+        //ColliderHandler.PartDetection();
         // Наносим урон юниту
         switch (Part)
         {
@@ -90,13 +90,14 @@ namespace Unit
             break;
         }
       }
-      
+
+      isRightClickReceived = false;
       yield return null;
     }
 
     private IEnumerator EnemyTurn()
     {
-      yield return new WaitForSeconds(10);
+      yield return new WaitForSeconds(2);
       if (Enemy.UnitSettings.Hp > 0)
       {
         Debug.Log("Enemy's turn. Attacking player.");

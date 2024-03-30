@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae23604add7cf3c4292c53ff01c5bd42, type: 3}
   m_Name: GoblinAsset
   m_EditorClassIdentifier: 
-  <Hp>k__BackingField: 30
+  <Hp>k__BackingField: 20
   <Strength>k__BackingField: 4
   <Agility>k__BackingField: 1
   <Luck>k__BackingField: 1

@@ -9,8 +9,9 @@ namespace Unit
 {
   public class UnitView : MonoBehaviour
   {
-    private Unit _unit;
-    private int _startHealth;
+    private Unit _unit; // curr health
+    private int _startHealth; // max health
+    public UnitHealthBar HealthBar;
 
     public void Init(Unit unit)
     {
@@ -28,16 +29,25 @@ namespace Unit
     public void Start()
     {
       _startHealth = _unit.UnitSettings.Hp;
+      HealthBar.healthSlider.maxValue = _startHealth;
+      HealthBar.healthSlider.minValue = 0;
+      HealthBar.healthSlider.value = _unit.UnitSettings.Hp;
     }
 
     public void Update()
     {
+      if (HealthBar.healthSlider.value != _unit.UnitSettings.Hp)
+      {
+        HealthBar.healthSlider.value = _unit.UnitSettings.Hp;
+      }
+      
       if (_unit.UnitSettings.Hp <= 0)
       {
         Debug.Log("update found defeated enemy");
         ItemGenerator.Instance.GenerateEnemyDrop(transform.position);
-        Game.Instance.CoinBalance +=
-          UnityEngine.Random.Range(Game.Instance.MinCoinsFromEnemy, Game.Instance.MaxCoinsFromEnemy + 1);
+        Game.Instance.CoinBalance += UnityEngine.Random.Range(Game.Instance.MinCoinsFromEnemy, Game.Instance.MaxCoinsFromEnemy + 1);
+        Game.Instance.CurrentRoom._numberOfMobsHere -= 1;
+        Debug.Log("object destroyed");
         Destroy(gameObject);
         ResetHealth();
       }

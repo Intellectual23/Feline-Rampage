@@ -47,6 +47,7 @@ public class Game : MonoBehaviour
       s.LoadGameData();
     }
     //s.LoadGameData();
+    CurrentRoom.RoomActivity();
   }
 
   // Update is called once per frame

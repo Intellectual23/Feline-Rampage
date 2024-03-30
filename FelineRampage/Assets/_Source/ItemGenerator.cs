@@ -33,8 +33,6 @@ public class ItemGenerator : MonoBehaviour
       Vector3 positionRelativeToParent = childTransform.position;
       _spawnPositions.Add(positionRelativeToParent);
     }
-    //GenerateEnemyDrop();
-    //GenerateItems();
   }
 
   private void Update()

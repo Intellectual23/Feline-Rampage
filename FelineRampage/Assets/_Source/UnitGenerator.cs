@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Unit;
 using UnityEngine;
+using UnityEngine.UI;
+
+// interface button deactivates button if 
+// unitgenerator's isMobHere == true; isMobHere depends on
+// unitview's update with its destoy(gameObject)
 
 public class UnitGenerator: MonoBehaviour
 {
@@ -11,7 +16,6 @@ public class UnitGenerator: MonoBehaviour
   public List<UnitSettings> _units = new();
   public List<GameObject> _unitPrefabs = new();
   private List<Vector3> _spawnPositions = new();
-  private bool isMobsSpawned = false;
   public UnitSettings _bossAsset;
   public GameObject _bossPrefab;
     
@@ -38,18 +42,29 @@ public class UnitGenerator: MonoBehaviour
       Vector3 positionRelativeToParent = childTransform.localPosition;
       _spawnPositions.Add(positionRelativeToParent);
     }
-    GenerateMobs();
+  }
+  
+  private void UpdateSpawnPositions()
+  {
+    _spawnPositions.Clear();
+    RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
+    foreach (Transform childTransform in parentPosition.transform)
+    {
+      Vector3 positionRelativeToParent = childTransform.position;
+      _spawnPositions.Add(positionRelativeToParent);
+    }
   }
   
   public void SpawnBoss()
   {
+    UpdateSpawnPositions();
     var boss = new Unit.Unit(_bossAsset);
     GameObject unitObject = Instantiate(_bossPrefab, _spawnPositions[1], Quaternion.identity);
     UnitView unitView = unitObject.GetComponent<UnitView>();
     unitView.Init(boss);
   }
 
-  public void MobsOrEmpty()
+  public int MobsOrEmpty()
   {
     int curProbability = UnityEngine.Random.Range(1, 101);
     int emptinessProbability = 20;
@@ -57,15 +72,18 @@ public class UnitGenerator: MonoBehaviour
     // emptinessProbability+1 - 100 => mobs
     if (curProbability >= emptinessProbability+1 && curProbability <= 100)
     {
-      GenerateMobs();
+      return GenerateMobs();
     }
+
+    return 0;
   }
 
-  void GenerateMobs()
+  int GenerateMobs()
   {
     // рандом числа генерации
     int amountOfMobs = UnityEngine.Random.Range(0, 3) + 1;
     Debug.Log($"amount of enemies: {amountOfMobs}");
+    UpdateSpawnPositions();
     // колво мобов для спавна
     for (int i = 1; i <= amountOfMobs; ++i)
     {
@@ -73,6 +91,8 @@ public class UnitGenerator: MonoBehaviour
       Debug.Log(_units[assetNumber].name);
       SpawnMobs(assetNumber, _spawnPositions[i - 1]);
     }
+
+    return amountOfMobs;
   }
 
   private void SpawnMobs(int assetNumber, Vector3 position)
@@ -82,5 +102,7 @@ public class UnitGenerator: MonoBehaviour
     GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
     UnitView unitView = unitObject.GetComponent<UnitView>();
     unitView.Init(mob);
+    
+    //unitObject.transform.GetChild(4).GetComponent<Canvas>().transform.GetChild(0).transform.GetComponent<Slider>() = unitView.HealthBar.healthSlider;
   }
 }
