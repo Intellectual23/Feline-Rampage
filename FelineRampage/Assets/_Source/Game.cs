@@ -41,7 +41,11 @@ public class Game : MonoBehaviour
   void Start()
   {
     LoadStats();
-   
+    if (PlayerPrefs.GetInt("Load") == 1)
+    {
+      Serializer s = new Serializer();
+      s.LoadGameData();
+    }
     //s.LoadGameData();
   }
 
