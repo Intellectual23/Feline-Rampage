@@ -3,41 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+namespace MainMenu
 {
-    public GameObject _settingsPanel;
-    // Start is called before the first frame update
-    void Start()
+    public class MenuManager : MonoBehaviour
     {
-        _settingsPanel.SetActive(false);
-    }
+        public GameObject _settingsPanel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            _settingsPanel.SetActive(false);
+        }
 
-    public void NewGame()
-    {
-        PlayerPrefs.SetInt("Load",0);
-        SceneManager.LoadScene("GameScene");
-    }
+        // Update is called once per frame
+        void Update()
+        {
 
-    public void Continue()
-    {
-        PlayerPrefs.SetInt("Load",1);
-        SceneManager.LoadScene("GameScene");
-    }
+        }
 
-    public void Settings()
-    {
-        
+        public void NewGame()
+        {
+            PlayerPrefs.SetInt("Load", 0);
+            SceneManager.LoadScene("GameScene");
+        }
+
+        public void Continue()
+        {
+            PlayerPrefs.SetInt("Load", 1);
+            SceneManager.LoadScene("GameScene");
+        }
+
+        public void Settings()
+        {
+            _settingsPanel.SetActive(true);
+        }
+
+        public void Exit()
+        {
+            Debug.Log("dfdkjfkdjfkdf");
+            Application.Quit();
+        }
     }
-    public void Exit()
-    {
-        Debug.Log("dfdkjfkdjfkdf");
-        Application.Quit();
-    }
-    
 }

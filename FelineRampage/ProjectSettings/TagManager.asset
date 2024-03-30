@@ -45,3 +45,6 @@ TagManager:
   - name: Interface
     uniqueID: 244355141
     locked: 0
+  - name: Settings
+    uniqueID: 2464229089
+    locked: 0
