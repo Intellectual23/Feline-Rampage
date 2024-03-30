@@ -23,7 +23,7 @@ namespace Room
       {
         RectTransform childRectTransform = childTransform.GetComponent<RectTransform>();
         Vector3 positionRelativeToParent = childRectTransform.anchoredPosition;
-        Debug.Log("Child position relative to parent: " + positionRelativeToParent);
+//        Debug.Log("Child position relative to parent: " + positionRelativeToParent);
       }
     }
 
@@ -37,7 +37,7 @@ namespace Room
           RoomActivity();
           _isActive = false;
         }
-        Debug.Log(name);
+//        Debug.Log(name);
       }
     }
 

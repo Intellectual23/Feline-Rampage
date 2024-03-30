@@ -115,14 +115,13 @@ public class ItemGenerator : MonoBehaviour
 
   }
 
-  public void SpawnToInventory(Item.Item item, Vector3 position)
+  public void SpawnToInventory(Item.Item item)
   {
-    GameObject itemObject = Instantiate(_itemPrefab, position, Quaternion.identity);
+    GameObject itemObject = Instantiate(_itemPrefab, new Vector3(0f,0f,0f), Quaternion.identity);
     ItemView itemView = itemObject.GetComponent<ItemView>();
     itemView.Init(item);
-    Inventory.Instance.AddToSlot(Inventory.Instance.Count, itemObject);
-    itemView._slotId = Inventory.Instance.Count;
-    Inventory.Instance.Count++;
+    int index = Inventory.Instance.Items.Count;
+    Inventory.Instance.Add(itemView);
   }
 
   private void GenerateCommonSet()
@@ -183,7 +182,7 @@ public class ItemGenerator : MonoBehaviour
         break;
       case 3:
         SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);
-        SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Default), _spawnPositions[0]);
+        SpawnItem(new Artifact(rareAssets[UnityEngine.Random.Range(0, rareAssets.Count)], ItemStatus.Default), _spawnPositions[1]);
         break;
       case 4:
         SpawnItem(new Artifact(commonAssets[UnityEngine.Random.Range(0, commonAssets.Count)],ItemStatus.Default), _spawnPositions[0]);

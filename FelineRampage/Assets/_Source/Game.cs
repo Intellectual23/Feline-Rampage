@@ -6,6 +6,7 @@ using Room;
 using Unit;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Game : MonoBehaviour
 {
@@ -40,11 +41,25 @@ public class Game : MonoBehaviour
   void Start()
   {
     LoadStats();
+   
+    //s.LoadGameData();
   }
 
   // Update is called once per frame
   void Update()
   {
+    if (Input.GetKeyDown(KeyCode.S))
+    {
+      Serializer s = new Serializer();
+      s.SaveGameData();
+      Debug.Log("SAVE");
+    }
+    if (Input.GetKeyDown(KeyCode.L))
+    {
+      Serializer s = new Serializer();
+      s.LoadGameData();
+      Debug.Log("LOAD");
+    }
   }
 
   private void LoadStats()

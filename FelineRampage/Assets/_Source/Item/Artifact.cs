@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Item
 {
+  [Serializable]
   public class Artifact: Item
   {
     public Artifact(ItemAsset asset, ItemStatus itemStatus): base(asset, itemStatus) { }
