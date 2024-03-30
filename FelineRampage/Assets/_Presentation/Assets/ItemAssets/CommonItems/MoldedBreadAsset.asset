@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f75817407489341a74d31947316b64, type: 3}
   m_Name: MoldedBreadAsset
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 4
+  <Id>k__BackingField: 3
   <Name>k__BackingField: MoldedBread
   <Description>k__BackingField: HP up
   <Rarity>k__BackingField: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f75817407489341a74d31947316b64, type: 3}
   m_Name: AceOfSpadesAsset
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 3
+  <Id>k__BackingField: 11
   <Name>k__BackingField: The Ace of Spades
   <Description>k__BackingField: If you like to gamble I tell you, I'm your man.
   <Rarity>k__BackingField: 3

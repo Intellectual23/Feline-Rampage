@@ -4,7 +4,7 @@ namespace Item
 {
   public class ItemView : MonoBehaviour
   {
-    private Item _item;
+    public Item _item;
     public int _slotId = -1;
     public void Init(Item item)
     {
@@ -56,8 +56,7 @@ namespace Item
     {
       _item._itemStatus = ItemStatus.Inventory;
       _item.Collect();
-      Vector3 newPosition = Inventory.Instance.transform.GetChild(Inventory.Instance.Items.Count).position;
-      ItemGenerator.Instance.SpawnToInventory(_item, newPosition);
+      ItemGenerator.Instance.SpawnToInventory(_item);
       Destroy(gameObject);
     }
   }

@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Item
 {
+  [Serializable]
   public class Consumable: Item
   {
+    
     public Consumable(ItemAsset itemAsset, ItemStatus itemStatus) :base(itemAsset, itemStatus) { }
 
     public override void Collect()
