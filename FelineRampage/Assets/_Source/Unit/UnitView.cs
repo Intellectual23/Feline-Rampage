@@ -12,13 +12,16 @@ namespace Unit
     private Unit _unit; // curr health
     private int _startHealth; // max health
     public UnitHealthBar HealthBar;
-    public FightManager _fightMode = new();
 
     public void Init(Unit unit)
     {
       _unit = unit;
       Transform image = transform.GetChild(3);
-      if (image == null) return;
+      if (image == null)
+      {
+        Debug.Log("pipa");
+        return;
+      }
       image.GetComponent<SpriteRenderer>().sprite = unit.UnitSettings.Icon;
     }
 
@@ -65,10 +68,10 @@ namespace Unit
       Collider collider = transform.GetComponent<Collider>();
       collider.enabled = false;
       Debug.Log(collider.enabled);
-      _fightMode.Init(_unit);
+      FightManager.Instance.Init(_unit);
       EnableColliders();
       _unit.IsFighting = true;
-      _fightMode.StartFight();
+      FightManager.Instance.StartFight();
     }
 
     private void EnableColliders()

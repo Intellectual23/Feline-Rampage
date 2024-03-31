@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Unit
@@ -22,7 +19,7 @@ namespace Unit
     {
       //hit of Main Char
       Debug.Log(_part);
-      gameObject.transform.parent.transform.GetComponent<UnitView>()._fightMode.Part = _part;
+      FightManager.Instance.Part = _part;
     }
   }
 }

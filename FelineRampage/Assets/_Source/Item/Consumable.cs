@@ -19,7 +19,6 @@ namespace Item
       switch (_itemAsset.StatToBuff)
       {
         case GameStat.Hp:
-          Game.Instance.Settings.Hp += _itemAsset.BuffValue;
           if (Game.Instance.CurrentHealth + _itemAsset.BuffValue > Game.Instance.Settings.Hp)
           {
             Game.Instance.CurrentHealth = Game.Instance.Settings.Hp;

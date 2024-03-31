@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using Random = System.Random;
 
 namespace Unit
@@ -17,6 +18,7 @@ namespace Unit
       _unitSettings.Strength = _startSettings.Strength;
       _unitSettings.Agility = _startSettings.Agility;
       _unitSettings.Luck = _startSettings.Luck;
+      _unitSettings.Icon = _startSettings.Icon;
     }
     
     public UnitSettings UnitSettings
