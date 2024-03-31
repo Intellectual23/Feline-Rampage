@@ -54,19 +54,22 @@ public class ItemGenerator : MonoBehaviour
   public void GenerateItems()
   {
     UpdateSpawnPositions();
-    int gen = UnityEngine.Random.Range(1,101);
+    int genValue = UnityEngine.Random.Range(1,101);
+    int luck = Game.Instance.Settings.Luck;
+    int epicChance = 5 + 5 * luck;
+    int rareChance = 20 + 5 * luck;
     int setType = UnityEngine.Random.Range(1, 4);
-    switch (setType)
+    if (genValue <= epicChance)
     {
-      case 1:
-        GenerateCommonSet();
-        break;
-      case 2:
-        GenerateRareSet();
-        break;
-      case 3:
-        GenerateEpicSet();
-        break;
+      GenerateEpicSet();
+    }
+    else if (genValue <= epicChance + rareChance)
+    {
+      GenerateRareSet();
+    }
+    else
+    {
+      GenerateCommonSet();
     }
   }
 
