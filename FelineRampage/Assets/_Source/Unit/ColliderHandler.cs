@@ -7,7 +7,7 @@ namespace Unit
 {
   public class ColliderHandler : MonoBehaviour
   {
-    [SerializeField] private String _part;
+    [SerializeField] private string _part;
     private Unit _unit;
     
     void OnMouseOver()
@@ -22,7 +22,7 @@ namespace Unit
     {
       //hit of Main Char
       Debug.Log(_part);
-      FightManager.Part = _part;
+      gameObject.transform.parent.transform.GetComponent<UnitView>()._fightMode.Part = _part;
     }
   }
 }

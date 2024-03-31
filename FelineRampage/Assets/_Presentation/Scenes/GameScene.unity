@@ -700,11 +700,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bd7f9eb44b9ce14591ec63e9cbd5a58, type: 2}
   - {fileID: 11400000, guid: 863861bbe4687994b85134b77d4f7ba4, type: 2}
   _unitPrefabs:
-  - {fileID: 8992470087622475096, guid: cadab9f520052a84fb47272841a6cd80, type: 3}
-  - {fileID: 3154831163559139397, guid: 47649820ec1eed945adb82e23617a9fe, type: 3}
-  - {fileID: 8992470087622475096, guid: 803be974348fe1d40b9041f39edaa690, type: 3}
+  - {fileID: 3920221195874360485, guid: 36778c4f76cd4c848a4ff6603a98a889, type: 3}
+  - {fileID: 7278013090942095324, guid: 1f8c2416baf7f77408d30dcda17fb333, type: 3}
+  - {fileID: 8031398788935008744, guid: 117ba175855230a4a8aeb96aa1c399ed, type: 3}
   _bossAsset: {fileID: 11400000, guid: a578a2aad74db6142a7b92b0e5f4d34a, type: 2}
-  _bossPrefab: {fileID: 3154831163559139397, guid: cde55cb0a514c2f42b85ce750f06211b, type: 3}
+  _bossPrefab: {fileID: 4294754286874914604, guid: ae7d629b3fdc27f47acc9eba9f1a330a, type: 3}
 --- !u!4 &1335725720
 Transform:
   m_ObjectHideFlags: 0
@@ -1280,6 +1280,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2108207897131319277, guid: c79696186bf3135498ac01aa2dc9929b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2421754378005258191, guid: c79696186bf3135498ac01aa2dc9929b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

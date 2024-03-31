@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 1642405688564744938}
+  _fightMode: {fileID: 0}
 --- !u!65 &4705545840861924595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -562,7 +563,7 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -673,5 +674,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2625866700516964720}
   maxHealth: 20
-  currentHealth: 1.33
-  _unit: {fileID: 1782863035539111256}

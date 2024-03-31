@@ -12,6 +12,7 @@ namespace Unit
     private Unit _unit; // curr health
     private int _startHealth; // max health
     public UnitHealthBar HealthBar;
+    public FightManager _fightMode = new();
 
     public void Init(Unit unit)
     {
@@ -48,8 +49,8 @@ namespace Unit
         Game.Instance.CoinBalance += UnityEngine.Random.Range(Game.Instance.MinCoinsFromEnemy, Game.Instance.MaxCoinsFromEnemy + 1);
         Game.Instance.CurrentRoom._numberOfMobsHere -= 1;
         Debug.Log("object destroyed");
+        //ResetHealth();
         Destroy(gameObject);
-        ResetHealth();
       }
 
       if (!_unit.IsFighting)
@@ -64,10 +65,10 @@ namespace Unit
       Collider collider = transform.GetComponent<Collider>();
       collider.enabled = false;
       Debug.Log(collider.enabled);
-      FightManager.Enemy = _unit;
+      _fightMode.Init(_unit);
       EnableColliders();
       _unit.IsFighting = true;
-      StartCoroutine(FightManager.Instance.FightMode());
+      _fightMode.StartFight();
     }
 
     private void EnableColliders()
