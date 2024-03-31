@@ -35,7 +35,7 @@ public class GameInteface : MonoBehaviour
   }
   public void Update()
   {
-    _coinBalanceText.text = $"{Game.Instance.CoinBalance + 6}";
+    _coinBalanceText.text = $"{Game.Instance.CoinBalance}";
     _strengthText.text = $"STR: {Game.Instance.Settings.Strength}";
     _agilityText.text = $"AGL: {Game.Instance.Settings.Agility}";
     _luckText.text = $"LUCK: {Game.Instance.Settings.Luck}";

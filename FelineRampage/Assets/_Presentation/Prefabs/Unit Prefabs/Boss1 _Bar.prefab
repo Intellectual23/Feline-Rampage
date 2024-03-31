@@ -246,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064765826725404365}
   - component: {fileID: 7322484920923475520}
+  - component: {fileID: 5568934605444883224}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -289,6 +290,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.045856, y: 3.145937, z: 1}
   m_Center: {x: 1.3799417, y: 1.0729685, z: 0}
+--- !u!114 &5568934605444883224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580584118791802066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Body
 --- !u!1 &4294754286874914604
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,8 +479,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2968383482282253527}
   maxHealth: 20
-  currentHealth: 1.33
-  _unit: {fileID: 8691334361440249917}
 --- !u!1 &7360030499113975394
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3209182390247074814}
   - component: {fileID: 6900145519347938065}
+  - component: {fileID: 1496046586672931438}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -622,6 +635,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.603472, y: 3.1031575, z: 1}
   m_Center: {x: -1.5012478, y: 1.262214, z: 0}
+--- !u!114 &1496046586672931438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125963189575620500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Head
 --- !u!1 &8439777935925774928
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5794804742957423889}
   - component: {fileID: 5982616498240970168}
+  - component: {fileID: 8325731555097814173}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -675,3 +702,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.319818, y: 1.8671889, z: 1}
   m_Center: {x: 0.68924075, y: -1.4480646, z: 0}
+--- !u!114 &8325731555097814173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439777935925774928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Legs
