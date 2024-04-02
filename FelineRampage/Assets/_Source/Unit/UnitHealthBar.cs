@@ -12,10 +12,5 @@ namespace Unit
     {
       healthSlider.value = maxHealth;
     }
-
-    private void Update()
-    {
-      
-    }
   }
 }
