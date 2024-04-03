@@ -25,7 +25,6 @@ namespace MainMenu
         {
             PlayerPrefs.SetInt("Load", 0);
             SceneManager.LoadScene("GameScene");
-            GameObject[] allObjects = FindObjectsOfType<GameObject>();
             EnableAllObjects(SceneManager.GetActiveScene().name);
         }
 

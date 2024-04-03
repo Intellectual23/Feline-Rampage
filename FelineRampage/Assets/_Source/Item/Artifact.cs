@@ -1,4 +1,5 @@
 ﻿using System;
+using Interface;
 using UnityEngine;
 
 namespace Item
@@ -24,7 +25,7 @@ namespace Item
           Game.Instance.Settings.Luck += _itemAsset.BuffValue;
           break;
       }
-      Debug.Log("ITEM IS COLLECTED");
+      InterfaceLog.Instance.AddMessage($"- {_itemAsset.Name} is collected");
     }
   }
 }

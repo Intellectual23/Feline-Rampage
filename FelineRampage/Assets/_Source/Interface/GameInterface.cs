@@ -9,8 +9,7 @@ public class GameInteface : MonoBehaviour
   public TextMeshProUGUI _strengthText;
   public TextMeshProUGUI _agilityText;
   public TextMeshProUGUI _luckText;
-
-  public Button _pauseButton;
+  
   //public Sprite _characterIcon;
   public static GameInteface Instance;
 
@@ -24,8 +23,6 @@ public class GameInteface : MonoBehaviour
     {
       Destroy(gameObject);
     }
-
-    DontDestroyOnLoad(this);
   }
 
   public void Start()
