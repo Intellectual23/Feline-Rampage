@@ -32,8 +32,7 @@ public class Game : MonoBehaviour
     {
       Destroy(gameObject);
     }
-
-    DontDestroyOnLoad(this);
+    
   }
 
 

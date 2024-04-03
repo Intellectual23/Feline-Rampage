@@ -1,17 +1,19 @@
 ﻿using System;
 using UnityEngine;
+using Interface;
 
 namespace Item
 {
   [Serializable]
-  public class Consumable: Item
+  public class Consumable : Item
   {
-    
-    public Consumable(ItemAsset itemAsset, ItemStatus itemStatus) :base(itemAsset, itemStatus) { }
+    public Consumable(ItemAsset itemAsset, ItemStatus itemStatus) : base(itemAsset, itemStatus)
+    {
+    }
 
     public override void Collect()
     {
-      Debug.Log($"{_itemAsset.Name} IS COLLECTED");
+      InterfaceLog.Instance.AddMessage($"- {_itemAsset.Name} is collected");
     }
 
     public void Use()
@@ -28,9 +30,11 @@ namespace Item
           {
             Game.Instance.CurrentHealth += _itemAsset.BuffValue;
           }
+
           break;
       }
-      Debug.Log($"{_itemAsset.Name} IS USED");
+
+      InterfaceLog.Instance.AddMessage($"- {_itemAsset.Name} is used");
     }
   }
 }

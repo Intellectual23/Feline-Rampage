@@ -48,7 +48,7 @@ namespace Item
           Inventory.Instance.DeleteFromSlot(_slotId);
           Destroy(gameObject);
         }
-        Debug.Log(_item.ItemAsset.Description);
+       Inventory.Instance._textLine.text = _item.ItemAsset.Description;
       }
     }
 

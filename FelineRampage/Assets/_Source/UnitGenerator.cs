@@ -29,8 +29,6 @@ public class UnitGenerator: MonoBehaviour
     {
       Destroy(gameObject);
     }
-
-    DontDestroyOnLoad(this);
   }
 
   private void Start()

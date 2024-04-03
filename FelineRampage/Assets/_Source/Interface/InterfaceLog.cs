@@ -10,7 +10,7 @@ namespace Interface
   {
     public int _linesCount;
     public static InterfaceLog Instance;
-    private List<string> _messages;
+    private List<string> _messages = new();
     public List<TextMeshProUGUI> _textLines;
     private int MessageCount { get; set; } = 0;
 
@@ -24,14 +24,16 @@ namespace Interface
       {
         Destroy(gameObject);
       }
-
-      DontDestroyOnLoad(this);
+      
     }
 
     private void Start()
     {
-      _messages.Clear();
-      Test();
+      for (int i = 0; i < _linesCount; ++i)
+      {
+        _messages.Add("");
+        _textLines[i].text = "";
+      }
     }
     
     public void AddMessage(string message)
@@ -47,17 +49,6 @@ namespace Interface
       {
         _textLines[i].text = _messages[i];
       }
-    }
-
-    private void Test()
-    {
-      AddMessage("LOG1");
-      AddMessage("LOG2");
-      AddMessage("LOG3");
-      AddMessage("LOG4");
-      AddMessage("LOG5");
-      AddMessage("LOG6");
-      AddMessage("LOG7");
     }
   }
 }

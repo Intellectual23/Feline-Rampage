@@ -21,8 +21,7 @@ public class ItemGenerator : MonoBehaviour
     {
       Destroy(gameObject);
     }
-
-    DontDestroyOnLoad(this);
+    
   }
 
   private void Start()
@@ -130,7 +129,6 @@ public class ItemGenerator : MonoBehaviour
     var commonAssets = GetCommonAssets();
     var consumableAssets = GetConsumableAssets();
     int setVar = UnityEngine.Random.Range(1, 3);
-    Debug.Log("COUNT:" + commonAssets.Count);
     switch (setVar)
     {
       case 1:

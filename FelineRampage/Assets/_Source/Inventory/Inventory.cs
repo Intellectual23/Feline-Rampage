@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Item;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class Inventory : MonoBehaviour
   public bool IsActive { get; set; } = false;
   public List<ItemView> Items;
   public List<InventorySlot> Slots;
-
+  public TextMeshProUGUI _textLine;
   private void Awake()
   {
     if (Instance == null)
@@ -27,9 +28,11 @@ public class Inventory : MonoBehaviour
 
   private void Start()
   {
+    _textLine.text = "";
     foreach (Transform childTransform in transform)
     {
-      Slots.Add(childTransform.transform.GetComponent<InventorySlot>());
+      if(childTransform.GetComponent<InventorySlot>() != null)
+        Slots.Add(childTransform.transform.GetComponent<InventorySlot>());
     }
     gameObject.SetActive(false);
   }
