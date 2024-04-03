@@ -187,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6714443574077895257}
   - component: {fileID: 2237093100076945555}
+  - component: {fileID: 7513318174210461316}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -219,7 +220,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -230,6 +231,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1626247, y: 0.81414294, z: 1}
   m_Center: {x: 0.120033205, y: -0.09292853, z: 0}
+--- !u!114 &7513318174210461316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904914117825261648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Body
 --- !u!1 &3925677182076004904
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3980060529322233131}
   - component: {fileID: 2926789468881830653}
+  - component: {fileID: 4625270637140989746}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -433,7 +448,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -444,6 +459,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0387199, y: 0.6205416, z: 1}
   m_Center: {x: 0.15875292, y: -0.8247411, z: 0}
+--- !u!114 &4625270637140989746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528525862524605816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Legs
 --- !u!1 &5324981114703250051
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2361389996360110067}
   - component: {fileID: 4412018603242170293}
+  - component: {fileID: 2099458770766633826}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -486,7 +515,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -497,6 +526,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85286295, y: 0.8141429, z: 1}
   m_Center: {x: 0.14326495, y: 0.73568475, z: 0}
+--- !u!114 &2099458770766633826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324981114703250051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3e3b4b2df0af64e9f435d2139e7fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _part: Head
 --- !u!1 &7278013090942095324
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 1642405688564744938}
-  _fightMode: {fileID: 0}
 --- !u!65 &4705545840861924595
 BoxCollider:
   m_ObjectHideFlags: 0
