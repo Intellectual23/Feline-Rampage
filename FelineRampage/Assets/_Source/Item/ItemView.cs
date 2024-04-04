@@ -31,7 +31,7 @@ namespace Item
         if (Game.Instance.CoinBalance >= cost)
         {
           Game.Instance.CoinBalance -= cost;
-          Debug.Log($"- {_item.ItemAsset.Name} is bought!");
+          Inventory.Instance._textLine.text =  $"- {_item.ItemAsset.Name} is bought!";
           MoveToInventory();
         }
       }
