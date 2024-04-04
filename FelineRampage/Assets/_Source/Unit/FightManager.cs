@@ -30,8 +30,6 @@ namespace Unit
       {
         Destroy(gameObject);
       }
-
-      DontDestroyOnLoad(this);
     }
 
     public void Start()
