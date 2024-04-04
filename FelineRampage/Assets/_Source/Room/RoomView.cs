@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using Item;
-using NUnit.Framework;
-using UnityEditor.TextCore.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 namespace Room

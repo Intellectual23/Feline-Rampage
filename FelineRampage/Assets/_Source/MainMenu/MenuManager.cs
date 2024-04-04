@@ -25,14 +25,12 @@ namespace MainMenu
         {
             PlayerPrefs.SetInt("Load", 0);
             SceneManager.LoadScene("GameScene");
-            EnableAllObjects(SceneManager.GetActiveScene().name);
         }
 
         public void Continue()
         {
             PlayerPrefs.SetInt("Load", 1);
             SceneManager.LoadScene("GameScene");
-           EnableAllObjects(SceneManager.GetActiveScene().name);
         }
 
         public void Settings()
@@ -50,7 +48,6 @@ namespace MainMenu
         {
             Serializer s = new Serializer();
             s.SaveGameData();
-            DisableAllObjects(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("MainMenuScene");
         }
 

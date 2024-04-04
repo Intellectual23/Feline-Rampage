@@ -14,6 +14,7 @@ namespace Item
       {
         case GameStat.Hp:
           Game.Instance.Settings.Hp += _itemAsset.BuffValue;
+          Game.Instance.CurrentHealth = Game.Instance.Settings.Hp;
           break;
         case GameStat.Strength:
           Game.Instance.Settings.Strength += _itemAsset.BuffValue;
