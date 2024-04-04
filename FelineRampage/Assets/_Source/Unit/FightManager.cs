@@ -4,8 +4,6 @@ using System.Data;
 using UnityEngine;
 using Random = System.Random;
 using System.Collections.Generic;
-using UnityEditor.Animations;
-using UnityEditorInternal;
 
 // TODO: ПОРЕНЕЙМИТЬ, счёты уменьшить и кодстайл
 
@@ -32,8 +30,6 @@ namespace Unit
       {
         Destroy(gameObject);
       }
-
-      DontDestroyOnLoad(this);
     }
 
     public void Start()

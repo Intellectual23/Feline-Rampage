@@ -1,19 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Item;
 using Room;
 using Unit;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
   public static Game Instance;
-  [SerializeField]public int LvlId;
-  [SerializeField]public int BasicArtifactCost;
-  [SerializeField]public int BasicConsumableCost;
+  [SerializeField] public int LvlId;
+  [SerializeField] public int BasicArtifactCost;
+  [SerializeField] public int BasicConsumableCost;
   [SerializeField] public int MinCoinsFromEnemy;
   [SerializeField] public int MaxCoinsFromEnemy;
   public int CurrentHealth { get; set; }
@@ -32,9 +27,16 @@ public class Game : MonoBehaviour
     {
       Destroy(gameObject);
     }
-    
   }
 
+  public void Update()
+  {
+    if (CurrentHealth <= 0)
+    {
+      PlayerPrefs.SetInt("Load", 0);
+      SceneManager.LoadScene("MainMenuScene");
+    }
+  }
 
   // Start is called before the first frame update
   void Start()
@@ -45,26 +47,12 @@ public class Game : MonoBehaviour
       Serializer s = new Serializer();
       s.LoadGameData();
     }
+
     //s.LoadGameData();
     CurrentRoom.RoomActivity();
   }
 
   // Update is called once per frame
-  void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.S))
-    {
-      Serializer s = new Serializer();
-      s.SaveGameData();
-      Debug.Log("SAVE");
-    }
-    if (Input.GetKeyDown(KeyCode.L))
-    {
-      Serializer s = new Serializer();
-      s.LoadGameData();
-      Debug.Log("LOAD");
-    }
-  }
 
   private void LoadStats()
   {
