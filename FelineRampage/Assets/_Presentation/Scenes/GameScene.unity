@@ -454,6 +454,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8fd2e2ed7604f9d4aa42ec65587f8982, type: 2}
   - {fileID: 11400000, guid: 7ad8e396f0c9b374c9fe3f8d1960ad60, type: 2}
   - {fileID: 11400000, guid: 38c65d9f876704e4185ec74ae81a5548, type: 2}
+  - {fileID: 11400000, guid: 4431485ed3cd4324eb1b83848a1657f1, type: 2}
+  - {fileID: 11400000, guid: 1f37dcf8227d5e34cb998ddca80a7390, type: 2}
+  - {fileID: 11400000, guid: 7b05664b025b6074481ee9ae444b9525, type: 2}
+  - {fileID: 11400000, guid: cd34eab6e446a0d42be8a133ec789a84, type: 2}
+  - {fileID: 11400000, guid: 02d2a4fb8206f6949b99854a3328e5b7, type: 2}
+  - {fileID: 11400000, guid: 92021a3be4d72a24b90c730414d8b4fb, type: 2}
+  - {fileID: 11400000, guid: 525a5f1c2d610724bbca0f825b7394a9, type: 2}
+  - {fileID: 11400000, guid: 17d43e9b9216c4c43a342a5b2948e6af, type: 2}
+  - {fileID: 11400000, guid: 725ff048946d53847819b0ec800f7411, type: 2}
 --- !u!4 &670573262
 Transform:
   m_ObjectHideFlags: 0
@@ -674,7 +683,7 @@ MonoBehaviour:
   BasicConsumableCost: 5
   MinCoinsFromEnemy: 10
   MaxCoinsFromEnemy: 20
-  StartSettings: {fileID: 11400000, guid: 4f2a40bbbb9fabc4da9de99d96c268f6, type: 2}
+  StartSettings: {fileID: 11400000, guid: ad5bb9365ef3b4045ac0d64d6949a3ca, type: 2}
   Settings: {fileID: 11400000, guid: 947701322816bb64a832afe19d8218de, type: 2}
   CoinBalance: 30
   CurrentRoom: {fileID: 1845789645}

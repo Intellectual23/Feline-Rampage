@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Interface
@@ -38,6 +36,10 @@ namespace Interface
     
     public void AddMessage(string message)
     {
+      if (MessageCount % _linesCount == 0)
+      {
+        ClearLog();
+      }
       _messages[MessageCount % _linesCount] = message;
       ++MessageCount;
       UpdateLog();
@@ -47,7 +49,15 @@ namespace Interface
     {
       for (int i = 0; i < _linesCount; ++i)
       {
-        _textLines[i].text = _messages[i];
+        _textLines[_linesCount - i - 1].text = _messages[i];
+      }
+    }
+
+    private void ClearLog()
+    {
+      for (int i = 0; i < _linesCount; ++i)
+      {
+        _messages[i] = "";
       }
     }
   }
