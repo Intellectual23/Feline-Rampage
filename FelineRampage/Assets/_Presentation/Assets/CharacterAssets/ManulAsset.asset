@@ -15,5 +15,5 @@ MonoBehaviour:
   <Hp>k__BackingField: 75
   <Strength>k__BackingField: 2
   <Agility>k__BackingField: 5
-  <Luck>k__BackingField: 2
-  <Icon>k__BackingField: {fileID: -7232521027535748977, guid: 933cc4128b1c56d47b2ea0d2ef0ab0e3, type: 3}
+  <Luck>k__BackingField: 1
+  <Icon>k__BackingField: {fileID: 7417840403017687238, guid: 195a8802de5d1b94382f3bd4134a45e3, type: 3}
