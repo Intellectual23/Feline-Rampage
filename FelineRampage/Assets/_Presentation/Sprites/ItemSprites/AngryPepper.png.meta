@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AngryPepper_0: -4441072085401744072
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

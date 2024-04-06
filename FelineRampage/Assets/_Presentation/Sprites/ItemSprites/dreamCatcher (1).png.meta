@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dreamCatcher (1)_0: -4576257952875386218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

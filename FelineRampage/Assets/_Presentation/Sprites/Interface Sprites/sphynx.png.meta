@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sphynx_0: 7772968204323144897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

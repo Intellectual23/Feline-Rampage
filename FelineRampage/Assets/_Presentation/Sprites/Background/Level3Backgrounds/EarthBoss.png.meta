@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EarthBoss_0: 1213399229592997203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

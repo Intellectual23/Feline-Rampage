@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lemon (1)_0: -7416076976527000538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

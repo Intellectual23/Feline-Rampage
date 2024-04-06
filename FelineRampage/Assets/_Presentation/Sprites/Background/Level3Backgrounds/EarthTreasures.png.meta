@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EarthTreasures_0: 781371065296877553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

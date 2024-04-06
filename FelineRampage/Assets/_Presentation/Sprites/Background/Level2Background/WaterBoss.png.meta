@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WaterBoss_0: 8599461127891061045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
