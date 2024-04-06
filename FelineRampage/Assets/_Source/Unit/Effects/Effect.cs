@@ -1,4 +1,6 @@
-﻿namespace Unit
+﻿using UnityEngine;
+
+namespace Unit
 {
   public abstract class Effect
   {

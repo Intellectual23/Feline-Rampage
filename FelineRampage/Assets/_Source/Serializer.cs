@@ -3,12 +3,15 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Item;
 using JetBrains.Annotations;
+using Room;
+using UnityEditor;
 using UnityEngine;
 
 
 public class Serializer
 {
   private string _path = Application.persistentDataPath + "/saves/inventorySave.save";
+  private string _pathMap = Application.persistentDataPath + "/saves/mapSave.save";
 
   public void SaveGameData()
   {
@@ -80,6 +83,48 @@ public class Serializer
         }
         ItemGenerator.Instance.SpawnToInventory(item);
       }
+    }
+    else
+    {
+      Debug.Log("FILE ERROR");
+    }
+  }
+
+  public void SaveMap()
+  {
+    List<MapWrapper> wrappers = new();
+    foreach (GameObject room in RoomGenerator.Instance._map)
+    {
+      wrappers.Add(new MapWrapper(room.transform.GetComponent<RoomView>()._id, room.transform.GetComponent<RoomView>()._isActive, 
+        room.transform.position.x, room.transform.position.y, room.transform.position.z));
+    }
+
+    var formatter = new BinaryFormatter();
+    var file = File.Create(_pathMap);
+    formatter.Serialize(file, wrappers);
+    file.Close();
+  }
+
+  public void LoadMap()
+  {
+    var formatter = new BinaryFormatter();
+    List<MapWrapper> wrappers;
+    if (File.Exists(_pathMap))
+    {
+      using (FileStream fileStream = new FileStream(_pathMap, FileMode.Open))
+      {
+        wrappers = (List<MapWrapper>)formatter.Deserialize(fileStream);
+      }
+      RoomGenerator.Instance._map.Clear();
+
+      // GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
+      foreach (MapWrapper wrapper in wrappers)
+      {
+        int prefabID = wrapper._prefabID;
+        Vector3 position = new Vector3(wrapper._x, wrapper._y, wrapper._z);
+        //GameObject room = Instantiate(RoomGenerator.Instance._allPrefabs[prefabID], position, Quaternion.identity);
+      }
+      
     }
     else
     {

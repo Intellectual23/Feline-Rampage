@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 namespace Room
@@ -11,10 +12,11 @@ namespace Room
     public bool _hasFrontPath;
     public bool _hasBackPath;
     public RoomType _roomType;
-    private bool _isActive = true;
+    public bool _isActive = true;
     //private bool _wasActivated = false;
     private bool _hasFrontPathInitially;
     public int _numberOfMobsHere = 0;
+    public int _id;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ namespace Room
       {
         RectTransform childRectTransform = childTransform.GetComponent<RectTransform>();
         Vector3 positionRelativeToParent = childRectTransform.anchoredPosition;
-//        Debug.Log("Child position relative to parent: " + positionRelativeToParent);
+        // Debug.Log("Child position relative to parent: " + positionRelativeToParent);
       }
     }
 
@@ -39,7 +41,7 @@ namespace Room
           RoomActivity();
           _isActive = false;
         }
-//        Debug.Log(name);
+        // Debug.Log(name);
       }
     }
 

@@ -608,6 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 1
+  allEffects:
+  - {fileID: 0}
 --- !u!4 &849491715
 Transform:
   m_ObjectHideFlags: 0

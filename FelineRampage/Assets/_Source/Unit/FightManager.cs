@@ -4,8 +4,9 @@ using System.Data;
 using UnityEngine;
 using Random = System.Random;
 using System.Collections.Generic;
+using System.Linq;
 
-// TODO: ПОРЕНЕЙМИТЬ, счёты уменьшить и кодстайл
+// TODO: ПОРЕНЕЙМИТЬ, счёты уменьшить и кодстайл, OPTIMIZATION пожалуйта ради бога 
 
 namespace Unit
 {
@@ -16,10 +17,13 @@ namespace Unit
     public string Part { get; set; }
     public bool playerTurn = true;
     Random rnd = new Random();
-    private List<Effect> unitEffects;
-    private List<Effect> mainCharEffects;
-    private List<Effect> allEffects = new();
-
+    private List<Effect> unitEffects = new();
+    private List<Effect> mainCharEffects = new();
+    public List<Effect> allEffects = new();
+    private int typeOfAttack = 0; // 0 missed, 1 - default, 2 - critical
+    
+    // игнорится вдруг от эффектов станет отриц здоровье....
+    
     private void Awake()
     {
       if (Instance == null)
@@ -34,9 +38,14 @@ namespace Unit
 
     public void Start()
     {
-      allEffects.Add(new PoisoningEffect("poisoned", 2, 6));
-      allEffects.Add(new BleedingEffect("bleeding", 4, 3));
-      allEffects.Add(new StunEffect("stun", 0, 3));
+      // + от крысы с простой атаки c шансом 30 на 70
+      allEffects.Add(new PoisoningEffect("poisoned", 2, 6)); //0
+      // + с простой атаки со склетеа и гоблина 30 на 70
+      allEffects.Add(new BleedingEffect("bleeding", 4, 3)); // 1
+      // + по голове с 50 на 50 вероятностью
+      allEffects.Add(new StunEffect("stun", 0, 3)); // 2
+      // + когда уклонился с 50 на 50 вероятностью
+      allEffects.Add(new HealingEffect("heal", 2, 4)); //3
     }
 
     public void Init(Unit unit)
@@ -46,18 +55,22 @@ namespace Unit
 
     public void StartFight()
     {
+      Interface.InterfaceLog.Instance.AddMessage("FIGHT MODE");
       StartCoroutine(FightMode());
-      Debug.Log("StartFight");
     }
 
-    public IEnumerator FightMode()
+    private IEnumerator FightMode()
     {
-      Debug.Log("fight mode coroutine");
       // 0 - main character, 1 - mob
       int whoIsFirst = rnd.Next(0, 2);
       if (whoIsFirst == 1)
       {
+        Interface.InterfaceLog.Instance.AddMessage("enemy is the first");
         playerTurn = false;
+      }
+      else
+      {
+        Interface.InterfaceLog.Instance.AddMessage("you are the first");
       }
 
       while (Game.Instance.CurrentHealth > 0 && _enemy.UnitSettings.Hp > 0)
@@ -74,7 +87,7 @@ namespace Unit
         else
         {
           _enemy.IsFighting = false;
-          Debug.Log("Battle ended.");
+          Interface.InterfaceLog.Instance.AddMessage("the end of the battle.");
           yield break;
         }
 
@@ -86,15 +99,28 @@ namespace Unit
 
     private IEnumerator PlayerTurn()
     {
-      Debug.Log("Player's turn. Click on the enemy to attack.");
+      Interface.InterfaceLog.Instance.AddMessage("your turn.");
+      if (mainCharEffects.Count != 0)
+      {
+        foreach (Effect effect in mainCharEffects)
+        {
+          if (effect._duration <= 0)
+          {
+            mainCharEffects.Remove(effect);
+            continue;
+          }
+          effect.Action(_enemy, true);
+        }
+      }
 
+      Interface.InterfaceLog.Instance.AddMessage("waiting for a click");
       bool isRightClickReceived = false;
 
       while (!isRightClickReceived)
       {
         // Ждем клика по юниту
         yield return new WaitUntil(() => Input.GetMouseButtonDown(1));
-        //ColliderHandler.PartDetection();
+        // ColliderHandler.PartDetection();
         // Наносим урон юниту
         switch (Part)
         {
@@ -111,20 +137,32 @@ namespace Unit
             isRightClickReceived = true;
             break;
           default:
-            Debug.Log("click retry");
+            Interface.InterfaceLog.Instance.AddMessage("click retry");
             break;
         }
       }
-
       isRightClickReceived = false;
     }
 
     private IEnumerator EnemyTurn()
     {
-      yield return new WaitForSeconds(2);
+      Interface.InterfaceLog.Instance.AddMessage("enemy's turn");
+      if (unitEffects.Count != 0)
+      {
+        foreach (Effect effect in unitEffects)
+        {
+          if (effect._duration <= 0)
+          {
+            unitEffects.Remove(effect);
+            continue;
+          }
+          effect.Action(_enemy, false);
+        }
+      }
+      Interface.InterfaceLog.Instance.AddMessage("enemy's thinking..");
+      yield return new WaitForSeconds(4f);
       if (_enemy.UnitSettings.Hp > 0)
       {
-        Debug.Log("Enemy's turn. Attacking player.");
         // Юнит наносит урон игроку
         MobTurn();
       }
@@ -133,10 +171,10 @@ namespace Unit
     private void MainCharAttackToBody()
     {
       int mainCharacterAttackValue = MainCharacterAttack(Game.Instance.Settings.Luck, false);
-      Debug.Log($"main character's turn. his attack: {mainCharacterAttackValue}");
+      Interface.InterfaceLog.Instance.AddMessage($"main character's attack: {mainCharacterAttackValue}");
       int mobAgilityToUse = _enemy.UnitSettings.Agility;
       if (ReceiveDamage(mobAgilityToUse, _enemy.UnitSettings, false, mainCharacterAttackValue, false)) return;
-      Debug.Log("mob was defeated. death");
+      Interface.InterfaceLog.Instance.AddMessage("mob was defeated");
     }
 
     private void MainCharAttackToHead(UnitSettings unit)
@@ -145,10 +183,10 @@ namespace Unit
       // но если крит случается то он икс два 
       int newLuck = unit.Luck - (unit.Luck / 2);
       int mainCharacterAttackValue = MainCharacterAttack(newLuck, true);
-      Debug.Log($"main character's turn. his attack: {mainCharacterAttackValue}");
+      Interface.InterfaceLog.Instance.AddMessage($"main character's attack: {mainCharacterAttackValue}");
       int mobAgilityToUse = _enemy.UnitSettings.Agility;
       if (ReceiveDamage(mobAgilityToUse, _enemy.UnitSettings, false, mainCharacterAttackValue, false)) return;
-      Debug.Log("mob was defeated. death");
+      Interface.InterfaceLog.Instance.AddMessage("mob was defeated");
     }
 
     public void MainCharAttackToLegs(UnitSettings unit)
@@ -156,7 +194,7 @@ namespace Unit
       // у врага больше ловкости чтоб отбиться 
       // но если игрок попадает то урон + ловкость уменьшается
       int mainCharacterAttackValue = MainCharacterAttack(unit.Luck, false);
-      Debug.Log($"main character's turn. his attack: {mainCharacterAttackValue}");
+      Interface.InterfaceLog.Instance.AddMessage($"main character's attack: {mainCharacterAttackValue}");
       int mobAgilityToUse = _enemy.UnitSettings.Agility;
       if (mobAgilityToUse >= 8)
       {
@@ -168,7 +206,7 @@ namespace Unit
       }
 
       if (ReceiveDamage(mobAgilityToUse, _enemy.UnitSettings, false, mainCharacterAttackValue, true)) return;
-      Debug.Log("mob was defeated. death");
+      Interface.InterfaceLog.Instance.AddMessage("mob was defeated");
     }
 
     private int MainCharacterAttack(int luck, bool toHead)
@@ -182,15 +220,25 @@ namespace Unit
       // промах
       if (cubeParam >= 1 && cubeParam < missedAttackPercentage)
       {
+        typeOfAttack = 0;
         return 0;
       }
 
       // дефолт атака
       if (cubeParam >= missedAttackPercentage && cubeParam < missedAttackPercentage + defaultAttackPercentage)
       {
+        typeOfAttack = 1;
         return defaultDamage;
       }
 
+      typeOfAttack = 3;
+      int effectProbability = rnd.Next(1, 3);
+      if (effectProbability == 1)
+      {
+        // мобу оглушение
+        unitEffects.Add(allEffects[2]);
+      }
+      
       if (toHead)
       {
         return 3 * defaultDamage;
@@ -202,9 +250,9 @@ namespace Unit
     private void MobTurn()
     {
       int mobAttackValue = MobAttack(_enemy.UnitSettings);
-      Debug.Log($"mob's turn. his attack: {mobAttackValue}");
+      Interface.InterfaceLog.Instance.AddMessage($"mob's attack: {mobAttackValue}");
       if (ReceiveDamage(Game.Instance.Settings.Agility, Game.Instance.Settings, true, mobAttackValue, false)) return;
-      Debug.Log("main char was defeated");
+      Interface.InterfaceLog.Instance.AddMessage("main char was defeated");
     }
 
     private int MobAttack(UnitSettings unit)
@@ -217,14 +265,18 @@ namespace Unit
       // промах
       if (cubeParam >= 1 && cubeParam < missedAttackPercentage)
       {
+        typeOfAttack = 0;
         return 0;
       }
 
       // дефолт атака
       if (cubeParam >= missedAttackPercentage && cubeParam < missedAttackPercentage + defaultAttackPercentage)
       {
+        typeOfAttack = 1;
         return defaultDamage;
       }
+
+      typeOfAttack = 2;
 
       return 2 * defaultDamage;
     }
@@ -237,33 +289,93 @@ namespace Unit
       // successfully dodged
       if (cubeParameter >= 1 && cubeParameter < dodgeProbability)
       {
-        Debug.Log("opponent dodged");
+        Interface.InterfaceLog.Instance.AddMessage("opponent dodged");
+        if (mainCharReceive)
+        {
+          // healing effect
+          mainCharEffects.Add(allEffects[3]);
+        }
+        else
+        {
+          unitEffects.Add(allEffects[3]);
+        }
         return true;
       }
 
+      ReceiveEffects(mainCharReceive);
+      
       if (mainCharReceive)
       {
-        Debug.Log($"opponent haven't dodged and got attacked. hp before attach: {Game.Instance.CurrentHealth}");
-        Game.Instance.CurrentHealth -= damage;
-        Debug.Log($"his hp after: {Game.Instance.CurrentHealth}");
-        if (toLegs)
-        {
-          unit.Agility -= (unit.Agility / 2);
-        }
+        Interface.InterfaceLog.Instance.AddMessage($"hp: {Game.Instance.CurrentHealth} -> {Game.Instance.CurrentHealth -= damage}");
 
         return Game.Instance.CurrentHealth > 0;
       }
       else
       {
-        Debug.Log($"opponent haven't dodged and got attacked. hp before attach: {_enemy.UnitSettings.Hp}");
-        _enemy.UnitSettings.Hp -= damage;
-        Debug.Log($"his hp after: {_enemy.UnitSettings.Hp}");
+        Interface.InterfaceLog.Instance.AddMessage($"hp: {_enemy.UnitSettings.Hp} -> {_enemy.UnitSettings.Hp -= damage}");
         if (toLegs)
         {
-          unit.Agility -= (unit.Agility / 2);
+          Interface.InterfaceLog.Instance.AddMessage($"new agility: {unit.Agility -= (unit.Agility / 2)}");
         }
 
         return _enemy.UnitSettings.Hp > 0;
+      }
+    }
+
+    private void ReceiveEffects(bool mainCharReceive)
+    {
+      if (mainCharReceive)
+      {
+        if (typeOfAttack == 1 && _enemy.UnitSettings.name.Contains("Rat"))
+        {
+          int possibility = rnd.Next(1, 8);
+          if (possibility <= 3)
+          {
+            mainCharEffects.Add(allEffects[0]);
+            mainCharEffects = mainCharEffects.Distinct().ToList();
+            Interface.InterfaceLog.Instance.AddMessage($"+ poisoned");
+          }
+        } else if (typeOfAttack == 1 && (_enemy.UnitSettings.name.Contains("Goblin") || _enemy.UnitSettings.name.Contains("Skeleto")))
+        {
+          int possibility = rnd.Next(1, 8);
+          if (possibility <= 3)
+          {
+            mainCharEffects.Add(allEffects[1]);
+            mainCharEffects = mainCharEffects.Distinct().ToList();
+            Interface.InterfaceLog.Instance.AddMessage($"+ bleeding");
+          }
+        } else if (typeOfAttack == 2)
+        {
+          int possibility = rnd.Next(1, 3);
+          if (possibility == 1)
+          {
+            mainCharEffects.Add(allEffects[2]);
+            mainCharEffects = mainCharEffects.Distinct().ToList();
+            Interface.InterfaceLog.Instance.AddMessage($"+ stun");
+          }
+        }
+      }
+      else
+      {
+        if (typeOfAttack == 1)
+        {
+          int possibility = rnd.Next(1, 8);
+          if (possibility <= 3)
+          {
+            unitEffects.Add(allEffects[1]);
+            unitEffects = unitEffects.Distinct().ToList();
+            Interface.InterfaceLog.Instance.AddMessage($"+ bleeding");
+          }
+        } else if (typeOfAttack == 2)
+        {
+          int possibility = rnd.Next(1, 3);
+          if (possibility == 1)
+          {
+            unitEffects.Add(allEffects[2]);
+            unitEffects = unitEffects.Distinct().ToList();
+            Interface.InterfaceLog.Instance.AddMessage($"+ stun");
+          }
+        }
       }
     }
   }

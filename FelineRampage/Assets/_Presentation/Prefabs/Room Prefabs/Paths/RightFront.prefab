@@ -218,6 +218,7 @@ MonoBehaviour:
   _hasBackPath: 1
   _roomType: 1
   _numberOfMobsHere: 0
+  _id: 10
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0

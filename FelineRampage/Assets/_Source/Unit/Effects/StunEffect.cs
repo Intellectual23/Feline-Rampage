@@ -18,11 +18,13 @@
           Luck = unit.UnitSettings.Luck;
         }
 
+        Interface.InterfaceLog.Instance.AddMessage($"stun: luck = 0");
         unit.UnitSettings.Luck = 0;
         _duration--;
         if (_duration == 0)
         {
           unit.UnitSettings.Luck = Luck;
+          return;
         }
       }
       else
@@ -32,11 +34,13 @@
           Luck = Game.Instance.Settings.Luck;
         }
 
+        Interface.InterfaceLog.Instance.AddMessage($"stun: luck = 0");
         Game.Instance.Settings.Luck = 0;
         _duration--;
         if (_duration == 0)
         {
           Game.Instance.Settings.Luck = Luck;
+          return;
         }
       }
     }

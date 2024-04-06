@@ -501,8 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 6012952867780723248}
   maxHealth: 20
-  currentHealth: 1.33
-  _unit: {fileID: 4902356976549817087}
 --- !u!1 &7191010316186397315
 GameObject:
   m_ObjectHideFlags: 0
