@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2469547091602338876}
   - component: {fileID: 8904120850030201140}
   m_Layer: 5
-  m_Name: Deadend_Right
+  m_Name: Deadend_ Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +215,9 @@ MonoBehaviour:
   _hasFrontPath: 0
   _hasBackPath: 0
   _roomType: 5
+  _isActive: 1
   _numberOfMobsHere: 0
-  _id: 3
+  _id: 0
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -407,11 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 19.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 10.81
       objectReference: {fileID: 0}
     - target: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

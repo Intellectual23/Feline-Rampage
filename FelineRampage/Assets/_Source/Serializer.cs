@@ -26,6 +26,7 @@ public class Serializer
     PlayerPrefs.SetFloat("yPos", position.y);
     PlayerPrefs.SetFloat("zPos", position.z);
     SaveInventory();
+    SaveMap();
   }
 
   public void LoadGameData()
@@ -42,6 +43,7 @@ public class Serializer
     position.z = PlayerPrefs.GetFloat("zPos");
     GameInteface.Instance.transform.position = position;
     LoadInventory();
+    LoadMap();
   }
 
   public void SaveInventory()
@@ -93,6 +95,7 @@ public class Serializer
   public void SaveMap()
   {
     List<MapWrapper> wrappers = new();
+    Debug.Log(RoomGenerator.Instance._map.Count);
     foreach (GameObject room in RoomGenerator.Instance._map)
     {
       wrappers.Add(new MapWrapper(room.transform.GetComponent<RoomView>()._id, room.transform.GetComponent<RoomView>()._isActive, 
@@ -117,14 +120,10 @@ public class Serializer
       }
       RoomGenerator.Instance._map.Clear();
 
-      // GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
       foreach (MapWrapper wrapper in wrappers)
       {
-        int prefabID = wrapper._prefabID;
-        Vector3 position = new Vector3(wrapper._x, wrapper._y, wrapper._z);
-        //GameObject room = Instantiate(RoomGenerator.Instance._allPrefabs[prefabID], position, Quaternion.identity);
+        RoomGenerator.Instance.SpawnRoomAfterLoad(wrapper);
       }
-      
     }
     else
     {

@@ -3,7 +3,7 @@
   public class MapWrapper
   {
     public int _prefabID;
-    private bool _isActive;
+    public bool _isActive;
     public float _x;
     public float _y;
     public float _z;

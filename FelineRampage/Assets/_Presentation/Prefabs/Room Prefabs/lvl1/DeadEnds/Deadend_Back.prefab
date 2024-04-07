@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 2469547091602338876}
   - component: {fileID: 8904120850030201140}
   m_Layer: 5
-  m_Name: Deadend_ Front
+  m_Name: Deadend_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ RectTransform:
   - {fileID: 8679916378678402406}
   - {fileID: 2943896348359043569}
   - {fileID: 2856573375103336061}
-  - {fileID: 4665510979950742873}
+  - {fileID: 1757976632936240483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,10 +212,12 @@ MonoBehaviour:
   _name: Front
   _hasLeftPath: 0
   _hasRightPath: 1
-  _hasFrontPath: 0
+  _hasFrontPath: 1
   _hasBackPath: 0
   _roomType: 5
+  _isActive: 1
   _numberOfMobsHere: 0
+  _id: 1
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -294,7 +296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.15, y: -2.6353}
+  m_AnchoredPosition: {x: -2.63, y: -3.54}
   m_SizeDelta: {x: 1.1414, y: 0.9273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5937996194494176883
@@ -332,7 +334,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0.87, y: -2.6906}
   m_SizeDelta: {x: 1.3084, y: 1.038}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &8650901524012192199
+--- !u!1001 &2365659674056706557
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -410,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 10.81
+      value: -10.81
       objectReference: {fileID: 0}
     - target: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -429,8 +431,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
---- !u!224 &4665510979950742873 stripped
+--- !u!224 &1757976632936240483 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4085069007618038942, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
-  m_PrefabInstance: {fileID: 8650901524012192199}
+  m_PrefabInstance: {fileID: 2365659674056706557}
   m_PrefabAsset: {fileID: 0}

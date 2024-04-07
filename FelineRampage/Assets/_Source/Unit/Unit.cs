@@ -1,7 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
-using Random = System.Random;
-
+﻿
 namespace Unit
 {
   public class Unit
