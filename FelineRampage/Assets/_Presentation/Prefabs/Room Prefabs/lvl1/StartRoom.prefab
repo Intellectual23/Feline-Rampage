@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 8904120850030201140}
   m_Layer: 5
   m_Name: StartRoom
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +217,14 @@ MonoBehaviour:
   _hasBackPath: 0
   _roomType: 4
   _isActive: 1
+  _hasFrontPathInitially: 0
   _numberOfMobsHere: 0
-  _id: 20
+  _id: 23
+  _isShop: 0
+  _isTreasures: 0
+  _isBoss: 0
+  _isDeadEnd: 0
+  _spawnPointAmount: 2
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -343,6 +349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1952546641065930268}
     m_Modifications:
+    - target: {fileID: 575116564048764226, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
+      propertyPath: Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2387633769920088906, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_Name
       value: SpawnPoint (1)
@@ -445,6 +455,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1952546641065930268}
     m_Modifications:
+    - target: {fileID: 575116564048764226, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
+      propertyPath: Direction
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2387633769920088906, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_Name
       value: SpawnPoint

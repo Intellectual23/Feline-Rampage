@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnLayout
+  - RoomPoint
+  - Room
+  - BossRoom
+  - ShopRoom
+  - TreasuresRoom
+  - StartRoom
+  - Boss
   layers:
   - Default
   - TransparentFX

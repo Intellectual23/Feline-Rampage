@@ -50,9 +50,10 @@ GameObject:
   - component: {fileID: 5119580125870209600}
   - component: {fileID: 2469547091602338876}
   - component: {fileID: 8904120850030201140}
+  - component: {fileID: 7516140426930716471}
   m_Layer: 5
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &394866561199675723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,14 +212,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Front
-  _hasLeftPath: 0
+  _hasLeftPath: 1
   _hasRightPath: 0
-  _hasFrontPath: 1
+  _hasFrontPath: 0
   _hasBackPath: 1
   _roomType: 1
   _isActive: 1
+  _hasFrontPathInitially: 0
   _numberOfMobsHere: 0
   _id: 5
+  _isShop: 0
+  _isTreasures: 0
+  _isBoss: 0
+  _isDeadEnd: 0
+  _spawnPointAmount: 2
 --- !u!61 &8904120850030201140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265,6 +272,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 12.685518, y: 4.8927984}
   m_EdgeRadius: 0
+--- !u!50 &7516140426930716471
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680127656927041836}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3600712611069500544
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +479,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1952546641065930268}
     m_Modifications:
+    - target: {fileID: 575116564048764226, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
+      propertyPath: Direction
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2387633769920088906, guid: 408b2ae2d1d499f44848ba5dd4f63e19, type: 3}
       propertyPath: m_Name
       value: SpawnPoint

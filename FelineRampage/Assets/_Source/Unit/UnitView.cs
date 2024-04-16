@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
@@ -54,6 +55,11 @@ namespace Unit
         Game.Instance.CurrentRoom._numberOfMobsHere -= 1;
         Debug.Log("object destroyed");
         //ResetHealth();
+        if (gameObject.transform.CompareTag("Boss"))
+        {
+          Debug.Log("boss was fought");
+          Game.Instance.ChangeScene();
+        }
         Destroy(gameObject);
       }
 

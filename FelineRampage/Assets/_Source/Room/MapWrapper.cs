@@ -1,5 +1,8 @@
-﻿namespace Room
+﻿using System;
+
+namespace Room
 {
+  [Serializable]
   public class MapWrapper
   {
     public int _prefabID;

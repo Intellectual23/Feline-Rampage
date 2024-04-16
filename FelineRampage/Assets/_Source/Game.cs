@@ -1,5 +1,6 @@
 using Room;
 using Unit;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,6 +51,25 @@ public class Game : MonoBehaviour
 
     //s.LoadGameData();
     CurrentRoom.RoomActivity();
+  }
+  
+  public void ChangeScene()
+  {
+    Debug.Log("change scene func");
+    Debug.Log(LvlId);
+    if (Game.Instance.LvlId == 1)
+    {
+      Debug.Log("to lvl2 scene");
+      SceneManager.LoadScene("lvl2");
+    } else if (Game.Instance.LvlId == 2)
+    {
+      Debug.Log("to lvl3 scene");
+      SceneManager.LoadScene("lvl3");
+    }
+    else
+    {
+      //SceneManager.LoadScene("finalTitre");
+    }
   }
 
   // Update is called once per frame
