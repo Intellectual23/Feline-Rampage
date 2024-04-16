@@ -14,9 +14,14 @@ namespace Room
     public RoomType _roomType;
     public bool _isActive = true;
     //private bool _wasActivated = false;
-    private bool _hasFrontPathInitially;
+    public bool _hasFrontPathInitially;
     public int _numberOfMobsHere = 0;
     public int _id;
+    public bool _isShop;
+    public bool _isTreasures;
+    public bool _isBoss;
+    public bool _isDeadEnd;
+    public int _spawnPointAmount;
 
     private void Start()
     {
@@ -29,7 +34,7 @@ namespace Room
         // Debug.Log("Child position relative to parent: " + positionRelativeToParent);
       }
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
       if (other.CompareTag("MainCamera"))
@@ -43,18 +48,45 @@ namespace Room
         }
         // Debug.Log(name);
       }
+      Debug.Log($"{other.name} = other. on trigger");
+
+      if (other.transform.GetComponent<RoomView>()._roomType == RoomType.StartRoom)
+      {
+        return;
+      }
+
+      if (other.CompareTag("Room"))
+      {
+        Debug.Log("room was deleted");
+        RoomGenerator.Instance._map.Remove(gameObject);
+        Destroy(gameObject);
+      }
+        
+      if (other.CompareTag("ShopRoom"))
+      {
+        Debug.Log("shoproom was deleted");
+        RoomGenerator.Instance._map.Remove(gameObject);
+        Destroy(gameObject);
+      }
+        
+      if (other.CompareTag("BossRoom"))
+      {
+        Debug.Log("bossroom was deleted");
+        RoomGenerator.Instance._map.Remove(gameObject);
+        Destroy(gameObject);
+      }
+        
+      if (other.CompareTag("TreasuresRoom"))
+      {
+        Debug.Log("treasuresroom was deleted");
+        RoomGenerator.Instance._map.Remove(gameObject);
+        Destroy(gameObject);
+      }
     }
 
     private void Update()
     {
-      if (_numberOfMobsHere != 0)
-      {
-        _hasFrontPath = false;
-      }
-      else
-      {
-        _hasFrontPath = _hasFrontPathInitially;
-      }
+      _hasFrontPath = _numberOfMobsHere == 0 && _hasFrontPathInitially;
     }
 
     public void RoomActivity()

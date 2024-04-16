@@ -13,6 +13,9 @@ namespace MainMenu
     public void Start()
     {
       _slider.value = 1;
+      //MusicSounds.Instance._musicManager.clip = MusicSounds.Instance._sounds[0];
+      //MusicSounds.Instance._musicManager.Play();
+      //Debug.Log("music play settings");
     }
 
     public void Update()

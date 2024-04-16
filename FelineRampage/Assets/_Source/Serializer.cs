@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using Room;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Serializer
@@ -26,6 +27,8 @@ public class Serializer
     PlayerPrefs.SetFloat("yPos", position.y);
     PlayerPrefs.SetFloat("zPos", position.z);
     SaveInventory();
+    SaveMap();
+    SaveLevel();
   }
 
   public void LoadGameData()
@@ -41,7 +44,9 @@ public class Serializer
     position.y = PlayerPrefs.GetFloat("yPos");
     position.z = PlayerPrefs.GetFloat("zPos");
     GameInteface.Instance.transform.position = position;
+    LoadLevel();
     LoadInventory();
+    LoadMap();
   }
 
   public void SaveInventory()
@@ -90,12 +95,40 @@ public class Serializer
     }
   }
 
+  private void SaveLevel()
+  {
+    PlayerPrefs.SetInt("lvlID", Game.Instance.LvlId);
+  }
+
+  private void LoadLevel()
+  {
+    int lvl = PlayerPrefs.GetInt("lvlID");
+    if (lvl == 1)
+    {
+      SceneManager.LoadScene("GameScene");
+    } else if (lvl == 2)
+    {
+      SceneManager.LoadScene("lvl2");
+    }
+    else if (lvl == 3)
+    {
+      SceneManager.LoadScene("lvl3");
+    }
+    else
+    {
+      SceneManager.LoadScene("MainMenuScene");
+    }
+  }
+
   public void SaveMap()
   {
     List<MapWrapper> wrappers = new();
+    Debug.Log(RoomGenerator.Instance._map.Count);
     foreach (GameObject room in RoomGenerator.Instance._map)
     {
-      wrappers.Add(new MapWrapper(room.transform.GetComponent<RoomView>()._id, room.transform.GetComponent<RoomView>()._isActive, 
+        room.transform.GetComponent<RoomView>()._hasFrontPath =
+        room.transform.GetComponent<RoomView>()._hasFrontPathInitially;
+        wrappers.Add(new MapWrapper(room.transform.GetComponent<RoomView>()._id, room.transform.GetComponent<RoomView>()._isActive, 
         room.transform.position.x, room.transform.position.y, room.transform.position.z));
     }
 
@@ -117,14 +150,10 @@ public class Serializer
       }
       RoomGenerator.Instance._map.Clear();
 
-      // GameObject unitObject = Instantiate(_unitPrefabs[assetNumber], position, Quaternion.identity);
       foreach (MapWrapper wrapper in wrappers)
       {
-        int prefabID = wrapper._prefabID;
-        Vector3 position = new Vector3(wrapper._x, wrapper._y, wrapper._z);
-        //GameObject room = Instantiate(RoomGenerator.Instance._allPrefabs[prefabID], position, Quaternion.identity);
+        RoomGenerator.Instance.SpawnRoomAfterLoad(wrapper);
       }
-      
     }
     else
     {

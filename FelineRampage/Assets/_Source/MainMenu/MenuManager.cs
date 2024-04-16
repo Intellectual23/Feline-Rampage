@@ -13,6 +13,9 @@ namespace MainMenu
         void Start()
         {
             _settingsPanel.SetActive(false);
+            //MusicSounds.Instance._musicManager.clip = MusicSounds.Instance._sounds[0];
+            //MusicSounds.Instance._musicManager.Play();
+            //Debug.Log("music play menumanager");
         }
 
         // Update is called once per frame
