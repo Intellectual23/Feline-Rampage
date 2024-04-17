@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnLayout
+  - RoomPoint
+  - Room
+  - BossRoom
+  - ShopRoom
+  - TreasuresRoom
+  - StartRoom
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -41,4 +48,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Interface
+    uniqueID: 244355141
+    locked: 0
+  - name: Settings
+    uniqueID: 2464229089
     locked: 0

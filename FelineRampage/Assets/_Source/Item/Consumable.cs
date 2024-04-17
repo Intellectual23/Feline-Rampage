@@ -1,14 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Interface;
 
 namespace Item
 {
-  public class Consumable: Item
+  [Serializable]
+  public class Consumable : Item
   {
-    public Consumable(ItemAsset itemAsset) : base(itemAsset) { }
+    public Consumable(ItemAsset itemAsset, ItemStatus itemStatus) : base(itemAsset, itemStatus)
+    {
+    }
 
     public override void Collect()
     {
-      //
+      InterfaceLog.Instance.AddMessage($"- {_itemAsset.Name} is collected");
     }
 
     public void Use()
@@ -16,19 +21,19 @@ namespace Item
       switch (_itemAsset.StatToBuff)
       {
         case GameStat.Hp:
-          Game.Instance.Settings.Hp += _itemAsset.BuffValue;
-          break;
-        case GameStat.Strength:
-          Game.Instance.Settings.Strength += _itemAsset.BuffValue;
-          break;
-        case GameStat.Agility:
-          Game.Instance.Settings.Agility += _itemAsset.BuffValue;
-          break;
-        case GameStat.Luck:
-          Game.Instance.Settings.Luck += _itemAsset.BuffValue;
+          if (Game.Instance.CurrentHealth + _itemAsset.BuffValue > Game.Instance.Settings.Hp)
+          {
+            Game.Instance.CurrentHealth = Game.Instance.Settings.Hp;
+          }
+          else
+          {
+            Game.Instance.CurrentHealth += _itemAsset.BuffValue;
+          }
+
           break;
       }
-      Debug.Log("ITEM IS USED");
+
+      InterfaceLog.Instance.AddMessage($"- {_itemAsset.Name} is used");
     }
   }
 }
