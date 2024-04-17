@@ -162,6 +162,8 @@ MonoBehaviour:
   _sounds:
   - {fileID: 8300000, guid: cfa1d31a8f392594e801a5ce9abaa39f, type: 3}
   _musicManager: {fileID: 633747618}
+  _volumeSlider: {fileID: 1744486165}
+  _sceneID: 1
 --- !u!82 &633747618
 AudioSource:
   m_ObjectHideFlags: 0
@@ -511,6 +513,11 @@ MonoBehaviour:
   Settings: {fileID: 11400000, guid: 947701322816bb64a832afe19d8218de, type: 2}
   CoinBalance: 30
   CurrentRoom: {fileID: 0}
+  _mainCharAssets:
+  - {fileID: 11400000, guid: 4f2a40bbbb9fabc4da9de99d96c268f6, type: 2}
+  - {fileID: 11400000, guid: 5859ad3d85d2d2b4a9b5dcc6babe6da2, type: 2}
+  - {fileID: 11400000, guid: ad5bb9365ef3b4045ac0d64d6949a3ca, type: 2}
+  - {fileID: 11400000, guid: c28b849c7f061f349a12d71053d01463, type: 2}
 --- !u!1 &1094794888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1234,17 @@ PrefabInstance:
       addedObject: {fileID: 1094794889}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffd0724f380dcb447b319157deb2d60e, type: 3}
+--- !u!114 &1744486165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7721672797615714698, guid: ffd0724f380dcb447b319157deb2d60e, type: 3}
+  m_PrefabInstance: {fileID: 1744486164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

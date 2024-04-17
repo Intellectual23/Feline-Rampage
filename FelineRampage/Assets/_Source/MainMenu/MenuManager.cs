@@ -27,7 +27,7 @@ namespace MainMenu
         public void NewGame()
         {
             PlayerPrefs.SetInt("Load", 0);
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("ChooseMainChar");
         }
 
         public void Continue()

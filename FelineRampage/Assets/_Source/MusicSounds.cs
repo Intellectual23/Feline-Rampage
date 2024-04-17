@@ -1,18 +1,19 @@
 ﻿
+using System;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class MusicSounds: MonoBehaviour
 {
     public static MusicSounds Instance;
     public AudioClip[] _sounds;
     public AudioSource _musicManager;
-
-    public void PlayMusic()
-    {
-        _musicManager.clip = _sounds[0];
-        _musicManager.Play();
-    }
+    [FormerlySerializedAs("volumeSlider")] public Slider _volumeSlider;
+    public int _sceneID;
+    
     
     private void Awake()
     {
@@ -24,6 +25,26 @@ public class MusicSounds: MonoBehaviour
         {
             Destroy(gameObject);
         }
-    
+    }
+
+    public void Start()
+    {
+        if (_sceneID == 0)
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1);
+        }
+        _musicManager.volume = PlayerPrefs.GetFloat("MusicVolume");
+        _volumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+    }
+
+    public void Update()
+    {
+        _musicManager.volume = _volumeSlider.value;
+        PlayerPrefs.SetFloat("MusicVolume", _musicManager.volume);
+    }
+
+    public void PlayMusic()
+    {
+        _musicManager.PlayOneShot(_sounds[0]);
     }
 }

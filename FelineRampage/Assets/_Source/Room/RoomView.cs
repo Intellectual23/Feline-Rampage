@@ -50,6 +50,10 @@ namespace Room
       }
       Debug.Log($"{other.name} = other. on trigger");
 
+      if (!other.TryGetComponent<RoomView>(out RoomView c))
+      {
+        return;
+      }
       if (other.transform.GetComponent<RoomView>()._roomType == RoomType.StartRoom)
       {
         return;

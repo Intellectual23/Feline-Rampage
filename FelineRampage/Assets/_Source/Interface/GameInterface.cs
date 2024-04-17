@@ -28,8 +28,9 @@ public class GameInteface : MonoBehaviour
   public void Start()
   {
     Transform characterIcon = transform.GetChild(0).GetChild(0);
-    characterIcon.GetComponent<SpriteRenderer>().sprite = Game.Instance.Settings.Icon;
+    characterIcon.GetComponent<SpriteRenderer>().sprite = Game.Instance._mainCharAssets[PlayerPrefs.GetInt("MainChar")].Icon;
   }
+  
   public void Update()
   {
     _coinBalanceText.text = $"{Game.Instance.CoinBalance}";

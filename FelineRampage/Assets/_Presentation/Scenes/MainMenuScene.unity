@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &5385810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3110224773290735302, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+  m_PrefabInstance: {fileID: 3485108296465542286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &35121510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1620,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1703,9 +1714,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3070906c2e741b8b6d98341ec108884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  _sounds:
   - {fileID: 8300000, guid: 799f025b5aad7b24d9dd548286d7fb80, type: 3}
-  musicManager: {fileID: 1444763944}
+  _musicManager: {fileID: 1444763944}
+  _volumeSlider: {fileID: 5385810}
+  _sceneID: 1
 --- !u!4 &1444763946
 Transform:
   m_ObjectHideFlags: 0
@@ -2275,11 +2288,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2461631323829284856, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2513354930124107802, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2513354930124107802, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110224773290735302, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162088412304550180, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162088412304550180, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -2291,8 +2320,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8215980586844053027, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_text
+      value: 100%
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624861157174821977, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624861157174821977, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624861157174821977, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129198663689887079, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9129198663689887079, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129198663689887079, guid: 4731caf66afe74f488ce4db2e0695814, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

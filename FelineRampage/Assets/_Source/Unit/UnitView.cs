@@ -58,6 +58,7 @@ namespace Unit
         if (gameObject.transform.CompareTag("Boss"))
         {
           Debug.Log("boss was fought");
+          //Invoke(nameof(Game.Instance.ChangeScene), 1f);
           Game.Instance.ChangeScene();
         }
         Destroy(gameObject);

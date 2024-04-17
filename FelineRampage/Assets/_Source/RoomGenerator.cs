@@ -35,12 +35,19 @@ public class RoomGenerator: MonoBehaviour
 
     public void Start()
     {
-        _roomCounter = 0;
-        _hasShop = false;
-        _hasBoss = false;
-        _hasTreasures = false;
-        InstantiateStartRoom();
-        Invoke(nameof(CheckMap), 3f);
+        if (PlayerPrefs.GetInt("Load") == 0 || PlayerPrefs.GetInt("Load") == 3)
+        {
+            _roomCounter = 0;
+            _hasShop = false;
+            _hasBoss = false;
+            _hasTreasures = false;
+            InstantiateStartRoom();
+            Invoke(nameof(CheckMap), 3f);
+        } else if (PlayerPrefs.GetInt("Load") == 1)
+        {
+            InstantiateStartRoom();
+        }
+        
         MusicSounds.Instance._musicManager.clip = MusicSounds.Instance._sounds[0];
         MusicSounds.Instance._musicManager.Play();
     }
@@ -270,10 +277,6 @@ public class RoomGenerator: MonoBehaviour
         int prefabID = wrapper._prefabID;
         Vector3 position = new Vector3(wrapper._x, wrapper._y, wrapper._z);
         GameObject room = Instantiate(Instance._allPrefabs[prefabID], position, Quaternion.identity);
-        for (int i = 0; i < room.transform.GetComponent<RoomView>()._spawnPointAmount; ++i)
-        {
-            Destroy(room.transform.GetChild(3));
-        }
         room.transform.GetComponent<RoomView>()._isActive = wrapper._isActive;
         _map.Add(room);
         Debug.Log(room.name);

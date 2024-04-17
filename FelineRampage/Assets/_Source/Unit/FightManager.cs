@@ -102,13 +102,19 @@ namespace Unit
       Interface.InterfaceLog.Instance.AddMessage("your turn.");
       if (mainCharEffects.Count != 0)
       {
+        while (mainCharEffects.Any(effect => effect._duration <= 0))
+        {
+          foreach (Effect effect in mainCharEffects)
+          {
+            if (effect._duration <= 0)
+            {
+              mainCharEffects.Remove(effect);
+              break;
+            }
+          }
+        }
         foreach (Effect effect in mainCharEffects)
         {
-          if (effect._duration <= 0)
-          {
-            mainCharEffects.Remove(effect);
-            continue;
-          }
           effect.Action(_enemy, true);
         }
       }
@@ -149,18 +155,24 @@ namespace Unit
       Interface.InterfaceLog.Instance.AddMessage("enemy's turn");
       if (unitEffects.Count != 0)
       {
+        while (unitEffects.Any(effect => effect._duration <= 0))
+        {
+          foreach (Effect effect in unitEffects)
+          {
+            if (effect._duration <= 0)
+            {
+              unitEffects.Remove(effect);
+              break;
+            }
+          }
+        }
         foreach (Effect effect in unitEffects)
         {
-          if (effect._duration <= 0)
-          {
-            unitEffects.Remove(effect);
-            continue;
-          }
-          effect.Action(_enemy, false);
+          effect.Action(_enemy, true);
         }
       }
       Interface.InterfaceLog.Instance.AddMessage("enemy's thinking..");
-      yield return new WaitForSeconds(4f);
+      yield return new WaitForSeconds(3f);
       if (_enemy.UnitSettings.Hp > 0)
       {
         // Юнит наносит урон игроку

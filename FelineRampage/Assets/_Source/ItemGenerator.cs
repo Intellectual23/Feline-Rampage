@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Item;
+using Room;
 using UnityEngine;
 
 public class ItemGenerator : MonoBehaviour
@@ -26,6 +27,7 @@ public class ItemGenerator : MonoBehaviour
 
   private void Start()
   {
+    Game.Instance.CurrentRoom = RoomGenerator.Instance._startRoom.GetComponent<RoomView>();
     RectTransform parentPosition = Game.Instance.CurrentRoom.GetComponent<RectTransform>();
     foreach (Transform childTransform in parentPosition.transform)
     {

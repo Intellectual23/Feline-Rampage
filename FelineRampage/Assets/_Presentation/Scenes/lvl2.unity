@@ -149,9 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3070906c2e741b8b6d98341ec108884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: cfa1d31a8f392594e801a5ce9abaa39f, type: 3}
-  musicManager: {fileID: 169198175}
+  _sounds: []
+  _musicManager: {fileID: 0}
+  _volumeSlider: {fileID: 0}
+  _sceneID: 1
 --- !u!82 &169198175
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,6 +303,11 @@ MonoBehaviour:
   Settings: {fileID: 11400000, guid: 947701322816bb64a832afe19d8218de, type: 2}
   CoinBalance: 30
   CurrentRoom: {fileID: 0}
+  _mainCharAssets:
+  - {fileID: 11400000, guid: 4f2a40bbbb9fabc4da9de99d96c268f6, type: 2}
+  - {fileID: 11400000, guid: 5859ad3d85d2d2b4a9b5dcc6babe6da2, type: 2}
+  - {fileID: 11400000, guid: ad5bb9365ef3b4045ac0d64d6949a3ca, type: 2}
+  - {fileID: 11400000, guid: c28b849c7f061f349a12d71053d01463, type: 2}
 --- !u!4 &234220713
 Transform:
   m_ObjectHideFlags: 0
@@ -947,7 +953,7 @@ MonoBehaviour:
   - {fileID: 2680127656927041836, guid: e0aa1ee4113302a44a8cecbe219064a8, type: 3}
   _startRoom: {fileID: 2680127656927041836, guid: 032efdd725cc68543b550d364a2c5c6c, type: 3}
   _roomCounter: 0
-  _corridorsInMapCounter: 6
+  _corridorsInMapCounter: 7
   _hasShop: 0
   _hasBoss: 0
   _hasTreasures: 0

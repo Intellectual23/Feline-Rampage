@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Room;
 using Unit;
 using UnityEditor.TextCore.Text;
@@ -17,6 +18,7 @@ public class Game : MonoBehaviour
   [SerializeField] public UnitSettings Settings;
   public int CoinBalance = 0;
   public RoomView CurrentRoom;
+  public List<UnitSettings> _mainCharAssets = new();
 
   private void Awake()
   {
@@ -42,14 +44,22 @@ public class Game : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    int assetID = PlayerPrefs.GetInt("MainChar");
+    StartSettings = _mainCharAssets[assetID];
+    
     LoadStats();
     if (PlayerPrefs.GetInt("Load") == 1)
     {
       Serializer s = new Serializer();
       s.LoadGameData();
+    } else if (Game.Instance.LvlId >= 1 && PlayerPrefs.GetInt("Load") == 3)
+    {
+      Serializer s = new Serializer();
+      s.LoadGameDataForNextLevel();
     }
 
     //s.LoadGameData();
+    CurrentRoom = RoomGenerator.Instance._startRoom.GetComponent<RoomView>();
     CurrentRoom.RoomActivity();
   }
   
@@ -59,16 +69,22 @@ public class Game : MonoBehaviour
     Debug.Log(LvlId);
     if (Game.Instance.LvlId == 1)
     {
+      Serializer s = new Serializer();
+      s.SaveGameDataForNextLevel();
+      PlayerPrefs.SetInt("Load", 3);
       Debug.Log("to lvl2 scene");
       SceneManager.LoadScene("lvl2");
     } else if (Game.Instance.LvlId == 2)
     {
+      Serializer s = new Serializer();
+      s.SaveGameDataForNextLevel();
+      PlayerPrefs.SetInt("Load", 3);
       Debug.Log("to lvl3 scene");
       SceneManager.LoadScene("lvl3");
     }
     else
     {
-      //SceneManager.LoadScene("finalTitre");
+      SceneManager.LoadScene("FinalTitres");
     }
   }
 
