@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae23604add7cf3c4292c53ff01c5bd42, type: 3}
   m_Name: Boss1Asset
   m_EditorClassIdentifier: 
-  <Hp>k__BackingField: 10
+  <Hp>k__BackingField: 60
   <Strength>k__BackingField: 3
   <Agility>k__BackingField: 2
   <Luck>k__BackingField: 2
