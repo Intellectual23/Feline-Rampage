@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Item;
@@ -11,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class Serializer
 {
-  private string _path = Application.persistentDataPath + "/saves/inventorySave.save";
+  private string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "inventorySave.save");
   private string _pathMap = Application.persistentDataPath + "/saves/mapSave.save";
 
   public void SaveGameData()
